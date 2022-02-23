@@ -1,8 +1,8 @@
 <?php 
 
-require_once __DIR__."/../model/Guest.php";
+require_once __DIR__."/../model/Signup.php";
 
-class GuestController
+class SignupController
 {
 	
 	public function __construct()
@@ -12,7 +12,7 @@ class GuestController
 
 	public function index()
 	{
-		$voyages=Guest::select();
+		$users=Signup::select();
 		require_once __DIR__."/../view/client/signup.php";
 	}
 
@@ -29,15 +29,15 @@ class GuestController
 		$email=$_POST['email'];
 		$password=$_POST['password'];
 
-		$guest=new Guest($nom,$prenom,$telephone,$email,$password);
-		$guest->save();
+		$users=new Signup($nom,$prenom,$telephone,$email,$password);
+		$users->save();
 		header("Location: http://localhost/trainline/home");
 	}
 
 	public function edit($idUser)
 	{
-		$guest=Guest::edit($idUser);
-		require_once __DIR__."/../view/user/edit.php";
+		$users=Signup::edit($idUser);
+		require_once __DIR__."/../view/client/edit.php";
 	}
 
 	public function update($idUser)
@@ -48,13 +48,13 @@ class GuestController
 		$email=$_POST['email'];
 		$password=$_POST['password'];
 
-		$guest=new Guest($nom,$prenom,$telephone,$email,$password);
-		$guest->update($idUser);
+		$users=new Signup($nom,$prenom,$telephone,$email,$password);
+		$users->update($idUser);
 		header("Location: http://localhost/trainline/guest");
 	}
 	public function delete($idUser)
 	{
-		$guests=Guest::delete($idUser);
+		$users=Signup::delete($idUser);
 		header("Location: http://localhost/trainline/guest");
 	}
 }

@@ -47,10 +47,10 @@
               <a href="#" class="nav-link mx-1">Mes voyages</a>
             </li>
             <li class="nav-item">
-              <a href="http://localhost/trainline/guest" class="nav-link mx-1">S'inscrire<i class="bi bi-person"></i></a>
+              <a href="http://localhost/trainline/signup" class="nav-link mx-1">S'inscrire<i class="bi bi-person"></i></a>
             </li>
             <li class="nav-item">
-              <a href="http://localhost/trainline/client" class="nav-link mx-1" class="nav-link mx-1">Se connecter<i class="bi bi-box-arrow-in-right"></i></a>
+              <a href="http://localhost/trainline/login" class="nav-link mx-1" class="nav-link mx-1">Se connecter<i class="bi bi-box-arrow-in-right"></i></a>
             </li>
           </ul>
           <form class="d-flex">

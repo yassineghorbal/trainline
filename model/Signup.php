@@ -3,7 +3,7 @@
 require_once "Connection.php";
 
 
-class Guest
+class Signup
 {
 	private $table="users";
 	private $nom;
