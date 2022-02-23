@@ -3,7 +3,7 @@
 require_once "Connection.php";
 
 
-class Client
+class Login
 {
 	private $table="users";
 	private $nom;
@@ -22,7 +22,14 @@ class Client
 
     // login system
 
+	public function login($email, $password){
 
+		$ctn=new Connection();
+		$row = $ctn->selectUser($this->table, ["email","password"],[$this->email, $this->password]);
+		
+		return $row;
+		
+	}
 
 
     // 

@@ -19,7 +19,7 @@
         body::before{
           display: block;
           content: '';
-          height: 60px;
+          height: 160px;
         }
       
     </style>
@@ -62,16 +62,43 @@
     </nav>
     
     <!-- voyages section : table where all the trips added by the admin show and are filtered by the search of the user-->
-    <section>
-      <div class="container">
+    <div class="container-lg">
+    <h1 class="text-center mb-5">Voyages Disponibles</h1>
+    <table class="table">
+        <tr>
+        <th scope="col">gare de depart</th>
+        <th scope="col">gare d'arrivee</th>
+        <th scope="col">date de depart</th>
+        <th scope="col">date d'arrivee</th>
+        <th scope="col">prix</th>
         
-      </div>
-    </section>
+        <th scope="col"></th>
+    </tr>
+    <?php  
+    foreach ($voyages as $voyage) 
+    {
+        echo "<tr>
 
+            
+            <td>".$voyage['depart']."</td>
+            <td>".$voyage['arrivee']."</td>
+            <td>".$voyage['dateDepart']."</td>
+            <td>".$voyage['dateArrivee']."</td>
+            <td>".$voyage['prix']. ' DH'."</td>
+            <td>
+                <a href='http://localhost/trainline/reservation/".$voyage['id']."' class='btn btn-primary'>book</i></a>
+            <td></tr>";
+    }
+    ?>
+    
+    </table>
+
+    
+    </div>
     <!-- Question Accordion -->
     <section id="questions" class="m-5">
       <div class="container">
-        <h2 class="text-center ">Questions fréquemment posées</h2>
+        <h2 class="text-center">Questions fréquemment posées</h2>
         <div class="accordion accordion-flush" id="questions">
           <!-- Item 1 -->
           <div class="accordion-item">

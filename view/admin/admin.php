@@ -67,7 +67,7 @@
         <th scope="col">prix</th>
         <th scope="col">gare de depart</th>
         <th scope="col">gare d'arrivee</th>
-        <th scope="col">id tarin</th>
+        <th scope="col">id train</th>
         <th scope="col">action</th>
     </tr>
     <?php  

@@ -58,13 +58,13 @@
 	<div class="container">
 
   <!-- to make it check db for user before login -->
-		<form action="http://localhost/trainline/user/save" method="POST">
+		<form action="http://localhost/trainline/login/login" method="POST">
 			
 			<div >
 				<label class="form-label">email</label>
 				<input type="email" class="form-control" name="email" required><br>
 				<label class="form-label">password</label>
-				<input type="password" class="form-control" name="password" required<br>
+				<input type="password" class="form-control" name="password"  required<br>
 			</div>
 			<button class="btn btn-success">sauvegarder</button>
 			<a href="http://localhost/trainline/home" class="btn btn-warning">annuler</a>

@@ -56,6 +56,19 @@ class Connection
 		return $query->fetchAll(PDO::FETCH_ASSOC)[0];
 	}
 
+	public function selectUser($table,$email)
+	{
+		$query=$this->conn->prepare("SELECT * FROM `$table` where email=$email");
+		$query->execute();
+		if($query->rowCount()>0)
+		{
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+
 
 	public function update($table,$tableCln,$tableVal,$id)
 	{

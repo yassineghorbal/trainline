@@ -15,7 +15,5 @@ class HomeController
 		$voyages=Home::select();
 		require_once __DIR__."/../view/index.php";
 	}
-
-
-
+	
 }
