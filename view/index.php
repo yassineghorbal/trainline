@@ -19,7 +19,7 @@
         body::before{
           display: block;
           content: '';
-          height: 160px;
+          height: 100px;
         }
       
     </style>
@@ -53,18 +53,50 @@
               <a href="http://localhost/trainline/login" class="nav-link mx-1" class="nav-link mx-1">Se connecter<i class="bi bi-box-arrow-in-right"></i></a>
             </li>
           </ul>
-          <form class="d-flex">
-            <input class="form-control  mx-2" type="search" placeholder="Trouver un voyage..." aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
         </div>
       </div>
     </nav>
+
+
+    <!-- search for available trips -->
+    
+    <section class="d-flex  justify-content-center">
+      <form class='w-50 p-5 text-light d-flex justify-content-center flex-column' action='http://localhost/trainline/home' method='POST'>
+          <div class="row mb-5">
+            <div class="col">
+              <div class="form-outline">
+								<label class="form-label text-dark">gare de depart</label>
+		            <input type="text" name="depart" class="form-control">
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-outline">
+						   <label class="form-label text-dark">gare d'arrivee</label>
+		           <input type="text" name="arrivee" class="form-control">
+              </div>
+            </div>
+            <?php
+            if(isset($_POST['submit']))
+            {
+            if(empty($_POST['depart']) && empty($_POST['arrivee']))
+              {
+                echo"<p class='pt-3 mb-0 text-danger'>veuillez remplir le formulaire</p>";
+              }
+            }
+            ?>
+           </div>
+              <!-- Submit button -->
+              <button type='submit' name='submit' class="btn btn-primary btn-block mb-5">
+                Search
+                </button>
+           </form> 
+           
+    </section>
     
     <!-- voyages section : table where all the trips added by the admin show and are filtered by the search of the user-->
     <div class="container-lg">
     <h1 class="text-center mb-5">Voyages Disponibles</h1>
-    <table class="table">
+    <table class="table table-striped table-hover">
         <tr>
         <th scope="col">gare de depart</th>
         <th scope="col">gare d'arrivee</th>
@@ -74,27 +106,38 @@
         
         <th scope="col"></th>
     </tr>
-    <?php  
-    foreach ($voyages as $voyage) 
+  <?php
+
+    if(isset($_POST['submit']))
     {
-        echo "<tr>
+      if(!empty($_POST['depart']) && !empty($_POST['arrivee']))
+      {
+          $departSearch = $_POST['depart'];
+          $arriveeSearch = $_POST['arrivee'];
+        
 
-            
-            <td>".$voyage['depart']."</td>
-            <td>".$voyage['arrivee']."</td>
-            <td>".$voyage['dateDepart']."</td>
-            <td>".$voyage['dateArrivee']."</td>
-            <td>".$voyage['prix']. ' DH'."</td>
-            <td>
-                <a href='http://localhost/trainline/reservation/".$voyage['id']."' class='btn btn-primary'>book</i></a>
-            <td></tr>";
-    }
-    ?>
+          foreach ($voyages as $voyage) 
+          {
+            if($departSearch == $voyage['depart'] && $arriveeSearch == $voyage['arrivee'])
+            {
+              echo "<tr>
+                <td>".'De '.$voyage['depart']."</td>
+                <td>".'A '.$voyage['arrivee']."</td>
+                <td>".$voyage['dateDepart']."</td>
+                <td>".$voyage['dateArrivee']."</td>
+                <td>".$voyage['prix']. ' DH'."</td>
+                <td>
+                    <a href='http://localhost/trainline/reservation/".$voyage['id']."' class='btn btn-primary'>réserver</i></a>
+                <td>
+                </tr>";
+            }
+          }
+        }
+      }
+  ?>
     
-    </table>
-
-    
-    </div>
+  </table>
+  </div>
     <!-- Question Accordion -->
     <section id="questions" class="m-5">
       <div class="container">
@@ -244,13 +287,13 @@
 
     <!-- Contact & Map -->
     <section class="p-2">
-      <div class="container">
+      <div class="container d-flex justify-content-center">
         <div class="row g-4">
-          <div class="col-md">
+          <div class="col-md-">
             <h2 class="text-center m-5">Contact Info</h2>
             <ul class="list-group list-group-flush lead">
               <li class="list-group-item">
-                <span class="fw-bold">Main Location:</span> 50 Main st Boston MA
+                <span class="fw-bold">Location:</span> 14 Av. Zerktouni, Safi
               </li>
               <li class="list-group-item">
                 <span class="fw-bold">Phone:</span> (555) 555-5555
@@ -263,11 +306,7 @@
               
             </ul>
           </div>
-          <div class="col-md  p-5">
-            <div id="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3372.6794627055415!2d-9.237701285384025!3d32.293594815784836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdac211719897669%3A0x6f59fa5bb517f58a!2sYoucode%20Safi!5e0!3m2!1sen!2sma!4v1645177151198!5m2!1sen!2sma" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-          </div>
+          
         </div>
       </div>
     </section>
@@ -276,20 +315,21 @@
     <footer class="p-5 mx-0 bg-light text-center position-relative">
       <div class="container">
 
-        <div class="position-absolute bottom-0 start-0 p-5">
+        
+        
+        <p class="lead">Copyright &copy; 2021 trainline.ma</p>
+        <div class="p-1">
         <a href="#">
-          <i class="bi bi-facebook h3 p-1 m-1"></i>  
+          <i class="bi bi-facebook h3 m-1"></i>  
         </a>
         <a href="#">
-          <i class="bi bi-instagram h3 p-1 m-1"></i>  
+          <i class="bi bi-instagram h3 m-1"></i>  
         </a>
         <a href="#">
-          <i class="bi bi-twitter h3 p-1 m-1"></i>  
+          <i class="bi bi-twitter h3 m-1"></i>  
         </a>
         
         </div>
-        
-        <p class="lead">Copyright &copy; 2021 trainline.ma</p>
 
         <a href="#" class="position-absolute bottom-0 end-0 p-5">
           <i class="bi bi-arrow-up-circle h1"></i>
