@@ -58,7 +58,7 @@
 	<div class="container">
 
   <!-- to make it check db for user before login -->
-		<form action="http://localhost/trainline/login/login" method="POST">
+		<form action="http://localhost/trainline/home/login" method="POST">
 			
 			<div >
 				<label class="form-label">email</label>
@@ -66,7 +66,7 @@
 				<label class="form-label">password</label>
 				<input type="password" class="form-control" name="password"  required<br>
 			</div>
-			<button class="btn btn-success">sauvegarder</button>
+			<button class="btn btn-success" name="login">se connecter</button>
 			<a href="http://localhost/trainline/home" class="btn btn-warning">annuler</a>
 		</form>
 	</div>

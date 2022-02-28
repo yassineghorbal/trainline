@@ -61,35 +61,39 @@
     <!-- search for available trips -->
     
     <section class="d-flex  justify-content-center">
-      <form class='w-50 p-5 text-light d-flex justify-content-center flex-column' action='http://localhost/trainline/home' method='POST'>
-          <div class="row mb-5">
-            <div class="col">
-              <div class="form-outline">
-								<label class="form-label text-dark">gare de depart</label>
-		            <input type="text" name="depart" class="form-control">
-              </div>
+      
+        <div class="container-md">
+        <h1 class="text-center mt-5">Trouver un voyage</h1>
+        <form class='p-5 text-light d-flex justify-content-center flex-column' action='http://localhost/trainline/home' method='POST'>
+        <div class="row mb-5">
+          <div class="col">
+            <div class="form-outline">
+              <label class="form-label text-dark">gare de depart</label>
+              <input type="text" name="depart" class="form-control">
             </div>
-            <div class="col">
-              <div class="form-outline">
-						   <label class="form-label text-dark">gare d'arrivee</label>
-		           <input type="text" name="arrivee" class="form-control">
-              </div>
+          </div>
+          <div class="col">
+            <div class="form-outline">
+              <label class="form-label text-dark">gare d'arrivee</label>
+              <input type="text" name="arrivee" class="form-control">
             </div>
-            <?php
-            if(isset($_POST['submit']))
+          </div>
+          <?php
+          if(isset($_POST['submit']))
+          {
+          if(empty($_POST['depart']) && empty($_POST['arrivee']))
             {
-            if(empty($_POST['depart']) && empty($_POST['arrivee']))
-              {
-                echo"<p class='pt-3 mb-0 text-danger'>veuillez remplir le formulaire</p>";
-              }
+              echo"<p class='pt-3 mb-0 text-danger'>veuillez remplir le formulaire</p>";
             }
-            ?>
-           </div>
-              <!-- Submit button -->
-              <button type='submit' name='submit' class="btn btn-primary btn-block mb-5">
-                Search
-                </button>
-           </form> 
+          }
+          ?>
+        </div>
+          <!-- Submit button -->
+          <button type='submit' name='submit' class="btn btn-primary btn-block mb-5">
+            Search
+          </button>
+      </form>
+        </div> 
            
     </section>
     

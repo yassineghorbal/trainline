@@ -46,10 +46,7 @@
             </li>
             
           </ul>
-          <form class="d-flex">
-            <input class="form-control  mx-2" type="search" placeholder="Trouver un voyage..." aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
+          
         </div>
       </div>
     </nav>
@@ -61,7 +58,7 @@
     <div class="container-lg">
     <table class="table">
         <tr>
-        <th scope="col">id</th>
+        <!-- <th scope="col">id</th> -->
         <th scope="col">date de depart</th>
         <th scope="col">date d'arrivee</th>
         <th scope="col">prix</th>
@@ -74,7 +71,7 @@
     foreach ($voyages as $voyage) 
     {
         echo "<tr>
-            <td>".$voyage['id']."</td>
+            
             <td>".$voyage['dateDepart']."</td>
             <td>".$voyage['dateArrivee']."</td>
             <td>".$voyage['prix']."</td>
@@ -82,8 +79,10 @@
             <td>".$voyage['arrivee']."</td>
             <td>".$voyage['idTrain']."</td>
             <td>
-                <a href='http://localhost/trainline/admin/delete/".$voyage['id']."' class='btn btn-secondary'>delete</i></a>
-                <a href='http://localhost/trainline/admin/edit/".$voyage['id']."' class='btn btn-secondary'>edit</a>
+
+                <a href='http://localhost/trainline/admin/edit/".$voyage['id']."' class='btn btn-primary'>edit</a>  
+                <a href='http://localhost/trainline/admin/delete/".$voyage['id']."' class='btn btn-danger'>delete</i></a>
+                
             <td></tr>";
     }
     ?>

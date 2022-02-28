@@ -56,19 +56,6 @@ class Connection
 		return $query->fetchAll(PDO::FETCH_ASSOC)[0];
 	}
 
-	public function selectUser($table,$email)
-	{
-		$query=$this->conn->prepare("SELECT * FROM `$table` where email=$email");
-		$query->execute();
-		if($query->rowCount()>0)
-		{
-			return true;
-		}
-		else{
-			return false;
-		}
-	}
-
 
 	public function update($table,$tableCln,$tableVal,$id)
 	{
@@ -92,61 +79,6 @@ class Connection
 	{
 		$query=$this->conn->prepare("DELETE FROM `$table` WHERE id=$id");
 		$query->execute();
-	}
-
-
-
-	// 
-	// 
-	// 
-
-	// Prepare statement with query
-	public function query($sql){
-		$this->stmt = $this->dbh->prepare($sql);
-	}
-
-	// Bind values
-	public function bind($param, $value, $type = null){
-
-		if(is_null($type)){
-			switch(true){
-				case is_int($value):
-				$type = PDO::PARAM_INT;
-				break;
-				case is_bool($value):
-				$type = PDO::PARAM_BOOL;
-				break;
-				case is_null($value):
-				$type = PDO::PARAM_NULL;
-				break;
-				default:
-				$type = PDO::PARAM_STR;    
-			}
-		}
-
-		$this->stmt->bindValue($param, $value, $type);
-	}
-
-	// Execute the prepared statement
-	public function execute(){
-		return $this->stmt->execute();
-	}
-
-	// Get result set as array
-	public function resultSet(){
-		$this->execute();
-		return $this->stmt->fetchAll(PDO::FETCH_ASSOC); 
-	}
-
-	// Get single record
-	public function single(){
-		$this->execute();
-		return $this->stmt->fetch(PDO::FETCH_ASSOC);
-	}
-
-	// Get row count
-	public function rowCount(){
-		return $this->stmt->rowCount();
 	}
 
 }

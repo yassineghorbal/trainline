@@ -2,6 +2,7 @@
 
 require_once __DIR__."/../model/Admin.php";
 
+
 class AdminController
 {
 	
@@ -20,6 +21,11 @@ class AdminController
 	{
 		require_once __DIR__."/../view/admin/create.php";
 	}
+
+	public function login(){
+		
+	}
+
 
 	public function save()
 	{
@@ -60,5 +66,6 @@ class AdminController
 		header("Location: http://localhost/trainline/admin");
 	}
 
+	
 
 }

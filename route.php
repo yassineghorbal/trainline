@@ -25,7 +25,7 @@ if (isset($params[0])&&!empty($params[0]))
 				}
 			}else
 			{
-				echo "page not found";
+				header("location: http://localhost/trainline/home");
 				exit();
 			}
 		}else
@@ -35,6 +35,6 @@ if (isset($params[0])&&!empty($params[0]))
 		}
 	}else
 	{
-		echo "page not found";
+		header("location: http://localhost/trainline/home");
 	}
 }
