@@ -16,6 +16,7 @@
     />
     <!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
     <style>
+
         body::before{
           display: block;
           content: '';
@@ -60,7 +61,7 @@
 
     <!-- search for available trips -->
     
-    <section class="d-flex  justify-content-center">
+    <section class="d-flex  justify-content-center" >
       
         <div class="container-md">
         <h1 class="text-center mt-5">Trouver un voyage</h1>
@@ -98,7 +99,7 @@
     </section>
     
     <!-- voyages section : table where all the trips added by the admin show and are filtered by the search of the user-->
-    <div class="container-lg">
+    <div class="container mb-5">
     <h1 class="text-center mb-5">Voyages Disponibles</h1>
     <table class="table table-striped table-hover">
         <tr>
@@ -144,7 +145,7 @@
   </div>
     <!-- Question Accordion -->
     <section id="questions" class="m-5">
-      <div class="container">
+      <div class="container w-75">
         <h2 class="text-center">Questions fréquemment posées</h2>
         <div class="accordion accordion-flush" id="questions">
           <!-- Item 1 -->

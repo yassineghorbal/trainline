@@ -23,7 +23,7 @@
         }
     </style>
 
-    <title>S'inscrire</title>
+    <title>Se connecter</title>
   </head>
   <body>
     <!-- navbar -->
@@ -55,20 +55,22 @@
 
     <h1 class="text-center mb-5 border border-secondary p-3">Se connecter</h1>
     
-	<div class="container">
 
+
+	<div class="container w-25">
   <!-- to make it check db for user before login -->
-		<form action="http://localhost/trainline/home/login" method="POST">
+		<form action="http://localhost/trainline/login/login" method="POST">
+		
+        <div class="mb-3">
+          <label class="form-label">email</label>
+          <input type="email" class="form-control" name="email" required><br>
+          <label class="form-label">password</label>
+          <input type="password" class="form-control" name="password" required<br>
+        </div>
 			
-			<div >
-				<label class="form-label">email</label>
-				<input type="email" class="form-control" name="email" required><br>
-				<label class="form-label">password</label>
-				<input type="password" class="form-control" name="password"  required<br>
-			</div>
 			<button class="btn btn-success" name="login">se connecter</button>
 			<a href="http://localhost/trainline/home" class="btn btn-warning">annuler</a>
-		</form>
+		</form> 
 	</div>
     
 

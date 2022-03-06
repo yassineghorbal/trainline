@@ -60,21 +60,20 @@
 	<div class="container">
 		<form action="http://localhost/trainline/Signup/save" method="POST">
 			<div class="row">
-			<div class="col">
-				<label class="form-label">nom</label>
-				<input type="text" class="form-control" name="nom" required><br>
-				<label class="form-label">prenom</label>
-				<input type="text" class="form-control" name="prenom" required><br>
-				<label class="form-label">telephone</label>
-				<input type="tel" class="form-control" name="telephone" required><br>
-			</div>
-			<div class="col">
-				<label class="form-label">email</label>
-				<input type="email" class="form-control" name="email" required><br>
-				<label class="form-label">password</label>
-				<input type="password" class="form-control" name="password" required<br>
-				
-			</div>
+        <div class="col">
+          <label class="form-label">nom</label>
+          <input type="text" class="form-control" name="nom" required><br>
+          <label class="form-label">prenom</label>
+          <input type="text" class="form-control" name="prenom" required><br>
+          <label class="form-label">telephone</label>
+          <input type="tel" class="form-control" name="telephone" required><br>
+        </div>
+        <div class="col">
+          <label class="form-label">email</label>
+          <input type="email" class="form-control" name="email" required><br>
+          <label class="form-label">password</label>
+          <input type="password" class="form-control" name="password" required<br>
+        </div>
 			</div>
 			<button class="btn btn-success">sauvegarder</button>
 			<a href="http://localhost/trainline/home" class="btn btn-warning">annuler</a>
