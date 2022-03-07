@@ -29,7 +29,7 @@
   </head>
   <body>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 fixed-top">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
       <div class="container">
         <a href="#" class="navbar-brand h1">Trainline</a>
 
@@ -59,11 +59,15 @@
     </nav>
 
 
+
+    
+
+
     <!-- search for available trips -->
     
-    <section class="d-flex  justify-content-center" >
+    <section class="d-flex  justify-content-center " >
       
-        <div class="container-md">
+        <div class="container">
         <h1 class="text-center mt-5">Trouver un voyage</h1>
         <form class='p-5 text-light d-flex justify-content-center flex-column' action='http://localhost/trainline/home' method='POST'>
         <div class="row mb-5">
@@ -84,13 +88,13 @@
           {
           if(empty($_POST['depart']) && empty($_POST['arrivee']))
             {
-              echo"<p class='pt-3 mb-0 text-danger'>veuillez remplir le formulaire</p>";
+              echo"<p class='pt-3 mb-0 text-danger'>veuillez remplir les deux champs</p>";
             }
           }
           ?>
         </div>
           <!-- Submit button -->
-          <button type='submit' name='submit' class="btn btn-primary btn-block mb-5">
+          <button type='submit' name='submit' class="btn btn-primary btn-block mb-5 w-25 mx-auto">
             Search
           </button>
       </form>

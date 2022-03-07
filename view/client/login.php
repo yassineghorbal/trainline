@@ -27,7 +27,7 @@
   </head>
   <body>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 fixed-top">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
       <div class="container">
         <a href="http://localhost/trainline/home" class="navbar-brand h1">Trainline</a>
 
@@ -53,13 +53,13 @@
     </nav>
 
 
-    <h1 class="text-center mb-5 border border-secondary p-3">Se connecter</h1>
+    <h1 class="text-center mb-5 p-3">Se connecter</h1>
     
 
 
 	<div class="container w-25">
   <!-- to make it check db for user before login -->
-		<form action="http://localhost/trainline/login/login" method="POST">
+		<form action="http://localhost/trainline/login" method="POST">
 		
         <div class="mb-3">
           <label class="form-label">email</label>

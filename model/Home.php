@@ -13,7 +13,7 @@ class Home
 	}
 
 	public static function select()
-	{
+	{	
 		$ctn=new Connection();
 		return $ctn->selectAll("voyages");
 	}

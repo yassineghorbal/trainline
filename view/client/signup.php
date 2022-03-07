@@ -28,7 +28,7 @@
   </head>
   <body>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 fixed-top">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
       <div class="container">
         <a href="http://localhost/trainline/home" class="navbar-brand h1">Trainline</a>
 
@@ -54,12 +54,12 @@
     </nav>
 
 
-    <h1 class="text-center mb-5 border border-secondary p-3">titre</h1>
+  <h1 class="text-center mb-5 p-3">S'inscrire</h1>
     
 
-	<div class="container">
+	<div class="container w-50 border border-secondary p-3 rounded">
 		<form action="http://localhost/trainline/Signup/save" method="POST">
-			<div class="row">
+			<div class="row ">
         <div class="col">
           <label class="form-label">nom</label>
           <input type="text" class="form-control" name="nom" required><br>
@@ -79,20 +79,6 @@
 			<a href="http://localhost/trainline/home" class="btn btn-warning">annuler</a>
 		</form>
 	</div>
-    
-
-
-    
-
-
-
-
-
-
-
-
-
-
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

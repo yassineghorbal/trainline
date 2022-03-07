@@ -23,7 +23,7 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-expand-lg bg-light navbar-light py-3 fixed-top">
+	<nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
       <div class="container">
         <a href="#" class="navbar-brand h1">Trainline</a>
 

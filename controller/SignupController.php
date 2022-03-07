@@ -28,7 +28,6 @@ class SignupController
 		$telephone=$_POST['telephone'];
 		$email=$_POST['email'];
 		$password=$_POST['password'];
-
 		$users=new Signup($nom,$prenom,$telephone,$email,$password);
 		$users->save();
 		header("Location: http://localhost/trainline/home");
@@ -47,14 +46,14 @@ class SignupController
 		$telephone=$_POST['telephone'];
 		$email=$_POST['email'];
 		$password=$_POST['password'];
-
 		$users=new Signup($nom,$prenom,$telephone,$email,$password);
 		$users->update($idUser);
-		header("Location: http://localhost/trainline/guest");
+		header("Location: http://localhost/trainline/home");
 	}
+
 	public function delete($idUser)
 	{
 		$users=Signup::delete($idUser);
-		header("Location: http://localhost/trainline/guest");
+		header("Location: http://localhost/trainline/home");
 	}
 }

@@ -81,4 +81,10 @@ class Connection
 		$query->execute();
 	}
 
+	public function prepare($sql)
+	{
+		return $this->conn->prepare($sql);
+	}
+
+
 }
