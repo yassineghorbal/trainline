@@ -17,7 +17,7 @@ class Login
 
 
 
-	public static function select_email($email_post, $password_post)
+	public static function login($email_post, $password_post)
 	{
 		$ctn = new Connection();
 		$str="SELECT * FROM users WHERE email = '$email_post'";
@@ -26,8 +26,8 @@ class Login
 		$query->execute();
 		$row = $query->fetch();
 
-		if(password_verify($password_post, $row['password'])){
-			echo "yes";
+		if ($password_post == $row['password']){
+			header('Location: http://localhost/trainline/home');
 		}else{
 			echo "no";
 		}
@@ -43,7 +43,7 @@ class Login
 	public function logout()
 	{
 		session_start();
-		unset($_SESSION['user']);
+		unset($_SESSION['email']);
 		header('Location: http://localhost/trainline/login');
 	}
 
