@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 require_once __DIR__."/../model/Reservation.php";
 
@@ -13,27 +13,25 @@ class ReservationController
 
 	public function index()
 	{
-		$voyages=Reservation::select();
+		$reservation=Reservation::select();
 		require_once __DIR__."/../view/client/reservation.php";
 	}
 
-	public function book($idVoyage)
+	public function book()
 	{
-		$dateDepart=$_POST['dateDepart'];
-		$dateArrivee=$_POST['dateArrivee'];
-		$prix=$_POST['prix'];
-		$depart=$_POST['depart'];
-		$arrivee=$_POST['arrivee'];
-		$idTain=$_POST['idTrain'];
+		$idTicket=$_POST['idTicket'];
+		$id=$_POST['id'];
+		$voyage=$_POST['idVoyage'];
+		
 
-		$voyage=new Reservation($dateDepart, $dateArrivee, $prix, $depart, $arrivee,$idTain);
-		$voyage->update($idVoyage);
+		$reservation = new Reservation($idTicket, $id, $voyage);
+		header("Location: http://localhost/trainline/home");
+		
+	}
+
+	public function cancel($idTicket)
+	{
+		$reservation=Reservation::delete($idTicket);
 		header("Location: http://localhost/trainline/home");
 	}
-	public function cancel($idVoyage)
-	{
-		$voyages=Admin::delete($idVoyage);
-		header("Location: http://localhost/trainline/admin");
-	}
-
 }

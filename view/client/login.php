@@ -57,7 +57,7 @@
     
 
 
-	<div class="container w-25">
+	<div class="container w-25 border border-secondary p-3 rounded">
   <!-- to make it check db for user before login -->
 		<form action="http://localhost/trainline/login" method="POST">
 		

@@ -1,0 +1,2 @@
+<?php
+    LoginController::logout();

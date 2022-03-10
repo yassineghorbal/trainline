@@ -6,7 +6,6 @@ require_once "Connection.php";
 class Login
 {
 	private $table="users";
-
 	private $email;
     private $password;
 	public function __construct($email,$password)
@@ -24,28 +23,22 @@ class Login
 		$query = $ctn->prepare($str);
 
 		$query->execute();
-		$row = $query->fetch();
+		$row = $query->fetch(PDO::FETCH_ASSOC);
 
 		if ($password_post == $row['password']){
+			session_start();
+			$_SESSION['id'] = $row['id'];
+			$_SESSION['email'] = $row['email'];
 			header('Location: http://localhost/trainline/home');
 		}else{
-			echo "no";
+			echo "wrong password!!";
 		}
 
-		// if(!empty($row)){
-		// 	return $row;
-		// }else{
-		// 	return false;
-		// }
+		
 	}
 
 
-	public function logout()
-	{
-		session_start();
-		unset($_SESSION['email']);
-		header('Location: http://localhost/trainline/login');
-	}
+	
 
     
 	// public static function delete($id)

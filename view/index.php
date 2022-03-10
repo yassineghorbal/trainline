@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -44,23 +47,32 @@
 
         <div class="collapse navbar-collapse" id="navmenu">
           <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
+            <?php if(isset($_SESSION['email'])) : ?>
+              <li class="nav-item">
+              <a href="#" class="nav-link mx-1"><?= $_SESSION['email'] ?></a>
+              </li>
+              <li class="nav-item">
               <a href="#" class="nav-link mx-1">Mes voyages</a>
+              </li>
+              <li class="nav-item">
+              <a href="http://localhost/trainline/login/logout" class="nav-link mx-1">Se deconnecter</a>
+              </li>
+              
+            <?php else : ?>
+              <li class="nav-item">
+              </li>
+            <li class="nav-item">
+              <a href="http://localhost/trainline/login" class="nav-link mx-1" class="nav-link mx-1">Se connecter<i class="bi bi-box-arrow-in-right"></i></a>
             </li>
             <li class="nav-item">
               <a href="http://localhost/trainline/signup" class="nav-link mx-1">S'inscrire<i class="bi bi-person"></i></a>
             </li>
-            <li class="nav-item">
-              <a href="http://localhost/trainline/login" class="nav-link mx-1" class="nav-link mx-1">Se connecter<i class="bi bi-box-arrow-in-right"></i></a>
-            </li>
+              
+            <?php endif ?>
           </ul>
         </div>
       </div>
     </nav>
-
-
-
-    
 
 
     <!-- search for available trips -->
@@ -136,7 +148,7 @@
                 <td>".$voyage['dateArrivee']."</td>
                 <td>".$voyage['prix']. ' DH'."</td>
                 <td>
-                    <a href='http://localhost/trainline/reservation/".$voyage['id']."' class='btn btn-primary'>réserver</i></a>
+                    <a href='http://localhost/trainline/reservation/".$voyage['id']."' class='btn btn-secondary'>réserver</i></a>
                 <td>
                 </tr>";
             }
@@ -328,13 +340,13 @@
         
         <p class="lead">Copyright &copy; 2021 trainline.ma</p>
         <div class="p-1">
-        <a href="#">
+        <a href="#" class="text-decoration-none">
           <i class="bi bi-facebook h3 m-1"></i>  
         </a>
-        <a href="#">
+        <a href="#" class="text-decoration-none">
           <i class="bi bi-instagram h3 m-1"></i>  
         </a>
-        <a href="#">
+        <a href="#" class="text-decoration-none">
           <i class="bi bi-twitter h3 m-1"></i>  
         </a>
         
@@ -349,12 +361,6 @@
     
 
     
-
-
-
-
-
-
 
 
 
