@@ -66,6 +66,4 @@ class AdminController
 		header("Location: http://localhost/trainline/admin");
 	}
 
-	
-
 }

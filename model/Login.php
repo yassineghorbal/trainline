@@ -19,7 +19,7 @@ class Login
 	public static function login($email_post, $password_post)
 	{
 		$ctn = new Connection();
-		$str="SELECT * FROM users WHERE email = '$email_post'";
+		$str="SELECT * FROM users WHERE email = '$email_post' ";
 		$query = $ctn->prepare($str);
 
 		$query->execute();
@@ -27,37 +27,13 @@ class Login
 
 		if ($password_post == $row['password']){
 			session_start();
-			$_SESSION['id'] = $row['id'];
 			$_SESSION['email'] = $row['email'];
+			$_SESSION['idUser'] = $row['idUser'];
 			header('Location: http://localhost/trainline/home');
 		}else{
-			echo "wrong password!!";
+			header('Location: http://localhost/trainline/login');
 		}
-
-		
-	}
-
-
 	
-
-    
-	// public static function delete($id)
-	// {
-	// 	$ctn=new Connection();
-	// 	return $ctn->delete("users",$id);
-	// }
-
-
-	// public static function edit($id)
-	// {
-	// 	$ctn=new Connection();
-	// 	return $ctn->selectOne("users",$id);
-	// }
-
-	// public function update($id)
-	// {
-	// 	$ctn=new Connection();
-	// 	$ctn->update($this->table,["nom","prenom","telephone","email","password"],[$this->nom,$this->prenom,$this->telephone,$this->email,$this->password],$id);
-	// }
+	}	
 
 }

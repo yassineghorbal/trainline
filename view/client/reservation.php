@@ -39,9 +39,7 @@
         <div class="collapse navbar-collapse" id="navmenu">
           <ul class="navbar-nav ms-auto">
             
-            <li class="nav-item">
-              <a href="http://localhost/trainline/admin/" class="nav-link mx-1">Admin<i class="bi bi-person"></i></a>
-            </li>
+            
             
           </ul>
   
@@ -49,52 +47,33 @@
       </div>
     </nav>
 
+
 	<h1 class="text-center mb-5 border border-secondary p-3">Reserver Voyage</h1>
 
-	<!-- user info -->
-  <div class="container w-50 border border-secondary p-3 rounded">
-		<form action="http://localhost/trainline/Signup/save" method="POST">
+  <div class="container">
+    <?php foreach($voyages as $voyage) : ?>
+		<form action="http://localhost/trainline/reservation" method="POST">
 			<div class="row">
-        <div class="col">
-          <label class="form-label">nom</label>
-          <input type="text" class="form-control" name="nom" required><br>
-          <label class="form-label">prenom</label>
-          <input type="text" class="form-control" name="prenom" required><br>
-        </div>
-        <div class="col">
-          <label class="form-label">telephone</label>
-          <input type="tel" class="form-control" name="telephone" required><br>
-          <label class="form-label">email</label>
-          <input type="email" class="form-control" name="email" required><br>
-        </div>
+			<div class="col">
+				<label class="form-label">date de depart</label>
+				<input type="datetime-local" class="form-control" value="<?php  ?>" name="dateDepart" readonly><br>
+				<label class="form-label">date d'arrivee</label>
+				<input type="datetime-local" class="form-control" value="<?php  ?>" name="dateArrivee" readonly><br>
+				<label class="form-label">prix</label>
+				<input type="number" class="form-control" value="<?php  ?>" name="prix" readonly><br>
 			</div>
-			<button class="btn btn-success">sauvegarder</button>
-			<a href="http://localhost/trainline/home" class="btn btn-warning">annuler</a>
-		</form>
-	</div>
-
-  <!-- voyage info -->
-	<div class="container-lg">
-		<form action="http://localhost/trainline/client/reservation/<?=$voyage['id']?>" method="POST">
-			<div class="row">
-				<div class="col-md">
-					<label class="form-label">date de depart</label>
-					<input type="datetime-local" class="form-control" name="dateDepart" value="<?=$voyage['dateDepart']?>" disabled><br>
-					<label class="form-label">date d'arrivee</label>
-					<input type="datetime-local" class="form-control" name="dateArrivee" value="<?=$voyage['dateArrivee']?>"><br>
-					<label class="form-label">prix</label>
-					<input type="number" class="form-control" name="prix" value="<?=$voyage['prix']?>" disabled><br>
-				</div>
-				<div class="col-md">
-					<label class="form-label">gare de depart</label>
-					<input type="text" class="form-control" name="depart" value="<?=$voyage['depart']?>" disabled><br>
-					<label class="form-label">gare d'arrivee</label>
-					<input type="text" class="form-control" name="arrivee" value="<?=$voyage['arrivee']?>" disabled><br>
-					</div>
+			<div class="col">
+				<label class="form-label">gare de depart</label>
+				<input type="text" class="form-control" value="<?php  ?>" name="depart" readonly><br>
+				<label class="form-label">gare d'arrivee</label>
+				<input type="text" class="form-control" value="<?php  ?>" name="arrivee" readonly><br>
+				<label class="form-label">train</label>
+				<input type="number" class="form-control" value="<?php  ?>" name="idTrain" readonly><br>
 			</div>
-			<button class="btn btn-success">sauvegarder</button>
-      <a href="http://localhost/trainline/admin" class="btn btn-warning">annuler</a>
+			</div>
+      <input type="submit" name="reserver" value="passer au payment" class="btn btn-success">
 		</form>
+    <?php endforeach ?>
 	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

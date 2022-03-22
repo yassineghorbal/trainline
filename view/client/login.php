@@ -14,7 +14,6 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
     />
-    <!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
     <style>
         body::before{
           display: block;
@@ -53,19 +52,23 @@
     </nav>
 
 
-    <h1 class="text-center mb-5 p-3">Se connecter</h1>
+    <h1 class="text-center p-3">Se connecter</h1>
     
 
 
-	<div class="container w-25 border border-secondary p-3 rounded">
+	<div class="container w-75 border border-secondary m-5 mx-auto  p-3 rounded">
   <!-- to make it check db for user before login -->
 		<form action="http://localhost/trainline/login" method="POST">
 		
-        <div class="mb-3">
-          <label class="form-label">email</label>
-          <input type="email" class="form-control" name="email" required><br>
-          <label class="form-label">password</label>
-          <input type="password" class="form-control" name="password" required<br>
+        <div class="row mb-3">
+          <div class="col-md">
+            <label class="form-label">email</label>
+            <input type="email" class="form-control mb-2" name="email" required>
+          </div>
+          <div class="col">
+            <label class="form-label">password</label>
+            <input type="password" class="form-control" name="password" required>
+          </div>
         </div>
 			
 			<button class="btn btn-success" name="login">se connecter</button>

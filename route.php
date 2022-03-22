@@ -2,7 +2,7 @@
 
 
 $params=explode("/", $_GET['p']);
-if (isset($params[0])&&!empty($params[0])) 
+if (isset($params[0])&&!empty($params[0]))
 {
 	$controller=ucfirst($params[0])."Controller";
 	if (file_exists("controller/".$controller.".php")) 

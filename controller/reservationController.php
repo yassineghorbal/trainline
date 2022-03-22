@@ -8,30 +8,22 @@ class ReservationController
 	
 	public function __construct()
 	{
-		
+		$this->reservationModel = new Reservation;
 	}
 
 	public function index()
 	{
-		$reservation=Reservation::select();
-		require_once __DIR__."/../view/client/reservation.php";
+		// require_once __DIR__."/../view/client/reservation.php";
+
+		session_start();
+		if(isset($_SESSION['idUser']) && isset($_POST['book']))
+		{
+			$this->reservationModel->insertTicket($_SESSION['idUser'], $_POST['idVoyage']);
+			header("location: http://localhost/trainline/home");
+		}
 	}
 
-	public function book()
-	{
-		$idTicket=$_POST['idTicket'];
-		$id=$_POST['id'];
-		$voyage=$_POST['idVoyage'];
-		
 
-		$reservation = new Reservation($idTicket, $id, $voyage);
-		header("Location: http://localhost/trainline/home");
-		
-	}
 
-	public function cancel($idTicket)
-	{
-		$reservation=Reservation::delete($idTicket);
-		header("Location: http://localhost/trainline/home");
-	}
+	
 }

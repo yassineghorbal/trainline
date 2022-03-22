@@ -14,12 +14,17 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
     />
-    <!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
+
     <style>
         body::before{
           display: block;
           content: '';
           height: 100px;
+        }
+        @media screen and (min-width: 480px) {
+          #container{
+            width: 80%;
+          }
         }
       
     </style>
@@ -54,13 +59,13 @@
     </nav>
 
 
-  <h1 class="text-center mb-5 p-3">S'inscrire</h1>
+  <h1 class="text-center p-3">S'inscrire</h1>
     
 
-	<div class="container w-50 border border-secondary p-3 rounded">
+	<div id="container" class="container w-75 border border-secondary p-3 rounded m-5 mx-auto">
 		<form action="http://localhost/trainline/Signup/save" method="POST">
-			<div class="row ">
-        <div class="col">
+			<div class="row">
+        <div class="col-md">
           <label class="form-label">nom</label>
           <input type="text" class="form-control" name="nom" required><br>
           <label class="form-label">prenom</label>
@@ -72,11 +77,11 @@
           <label class="form-label">email</label>
           <input type="email" class="form-control" name="email" required><br>
           <label class="form-label">password</label>
-          <input type="password" class="form-control" name="password" required<br>
+          <input type="password" class="form-control" name="password" required>
         </div>
 			</div>
-			<button class="btn btn-success">sauvegarder</button>
-			<a href="http://localhost/trainline/home" class="btn btn-warning">annuler</a>
+			<button class="btn btn-success mt-2">sauvegarder</button>
+			<a href="http://localhost/trainline/home" class="btn btn-warning mt-2">annuler</a>
 		</form>
 	</div>
 
