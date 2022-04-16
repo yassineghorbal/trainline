@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 // Done (backend) modifications to be made in (frontend)
 

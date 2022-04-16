@@ -5,7 +5,7 @@ class Connection
 	private $servername = "localhost";
 	private $username = "root";
 	private $password = "";
-	private $database="briefmvc";
+	private $database="brief5";
 	private $conn;
 
 	public function __construct()

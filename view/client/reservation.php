@@ -48,27 +48,28 @@
     </nav>
 
 
-	<h1 class="text-center mb-5 border border-secondary p-3">Reserver Voyage</h1>
+	<h1 class="text-center mb-5 p-3">Reserver Voyage</h1>
+
+
 
   <div class="container">
     <?php foreach($voyages as $voyage) : ?>
-		<form action="http://localhost/trainline/reservation" method="POST">
+		<form action="http://localhost/trainline/reservation/reserver/<?=$voyage['id']?>" method="POST">
 			<div class="row">
 			<div class="col">
 				<label class="form-label">date de depart</label>
-				<input type="datetime-local" class="form-control" value="<?php  ?>" name="dateDepart" readonly><br>
+				<input type="datetime-local" class="form-control" value="<?= $voyage['dateDepart']  ?>" name="dateDepart" readonly><br>
 				<label class="form-label">date d'arrivee</label>
-				<input type="datetime-local" class="form-control" value="<?php  ?>" name="dateArrivee" readonly><br>
+				<input type="datetime-local" class="form-control" value="<?= $voyage['dateArrivee'] ?>" name="dateArrivee" readonly><br>
 				<label class="form-label">prix</label>
-				<input type="number" class="form-control" value="<?php  ?>" name="prix" readonly><br>
+				<input type="number" class="form-control" value="<?= $voyage['prix'] ?>" name="prix" readonly><br>
 			</div>
 			<div class="col">
 				<label class="form-label">gare de depart</label>
-				<input type="text" class="form-control" value="<?php  ?>" name="depart" readonly><br>
+				<input type="text" class="form-control" value="<?= $voyage['depart']  ?>" name="depart" readonly><br>
 				<label class="form-label">gare d'arrivee</label>
-				<input type="text" class="form-control" value="<?php  ?>" name="arrivee" readonly><br>
-				<label class="form-label">train</label>
-				<input type="number" class="form-control" value="<?php  ?>" name="idTrain" readonly><br>
+				<input type="text" class="form-control" value="<?= $voyage['arrivee']  ?>" name="arrivee" readonly><br>
+				
 			</div>
 			</div>
       <input type="submit" name="reserver" value="passer au payment" class="btn btn-success">

@@ -36,10 +36,10 @@ session_start();
 
             <div class="collapse navbar-collapse" id="navmenu">
                 <ul class="navbar-nav ms-auto">
-                    <?php if (isset($_SESSION['idUser'])) : ?>
+                    <?php if (isset($_SESSION['id'])) : ?>
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link mx-1"><?= $_SESSION['email'] ?></a>
+                            <a href="#" class="nav-link mx-1"><?= $_SESSION['nom'] ?></a>
                         </li>
                         <li class="nav-item">
                             <a href="http://localhost/trainline/voyages" class="nav-link mx-1">Mes voyages</a>
@@ -129,7 +129,7 @@ session_start();
                                 <td><?php echo $voyage['dateArrivee']; ?></td>
                                 <td><?php echo $voyage['prix']; ?></td>
                                 <td>
-                                    <form action='http://localhost/trainline/reservation' method='POST'>
+                                    <form action='http://localhost/trainline/reservation/reserver/<?=$voyage['id']?>' method='POST'>
 
                                         <input type='number' name='idVoyage' value='<?php echo $voyage['id'] ?>' hidden>
                                         <input type='submit' name='book' value='réserver' class='btn btn-success'>

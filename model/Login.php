@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 require_once "Connection.php";
 
@@ -28,12 +28,13 @@ class Login
 		if ($password_post == $row['password']){
 			session_start();
 			$_SESSION['email'] = $row['email'];
-			$_SESSION['idUser'] = $row['idUser'];
+			$_SESSION['id'] = $row['id'];
+			$_SESSION['nom'] = $row['nom'];
 			header('Location: http://localhost/trainline/home');
 		}else{
 			header('Location: http://localhost/trainline/login');
 		}
-	
-	}	
+
+	}
 
 }

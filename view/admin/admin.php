@@ -77,8 +77,8 @@
             <td>".$voyage['idTrain']."</td>
             <td>
 
-                <a href='http://localhost/trainline/admin/edit/".$voyage['id']."' class='btn btn-primary'>edit</a>  
-                <a href='http://localhost/trainline/admin/delete/".$voyage['id']."' class='btn btn-danger'>delete</i></a>
+            <a href='http://localhost/trainline/admin/edit/".$voyage['id']."' class='btn btn-primary'>edit</a>  
+            <a href='http://localhost/trainline/admin/delete/".$voyage['id']."' class='btn btn-danger'>delete</a>
                 
             <td></tr>";
     }
