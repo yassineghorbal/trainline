@@ -65,20 +65,20 @@
         <th scope="col">action</th>
     </tr>
     <?php  
-    foreach ($voyages as $voyage) 
+    foreach ($voyage as $voy) 
     {
         echo "<tr>
             
-            <td>".$voyage['dateDepart']."</td>
-            <td>".$voyage['dateArrivee']."</td>
-            <td>".$voyage['prix']."</td>
-            <td>".$voyage['depart']."</td>
-            <td>".$voyage['arrivee']."</td>
-            <td>".$voyage['idTrain']."</td>
+            <td>".$voy['dateDepart']."</td>
+            <td>".$voy['dateArrivee']."</td>
+            <td>".$voy['prix']."</td>
+            <td>".$voy['depart']."</td>
+            <td>".$voy['arrivee']."</td>
+            <td>".$voy['idTrain']."</td>
             <td>
 
-            <a href='http://localhost/trainline/admin/edit/".$voyage['id']."' class='btn btn-primary'>edit</a>  
-            <a href='http://localhost/trainline/admin/delete/".$voyage['id']."' class='btn btn-danger'>delete</a>
+            <a href='http://localhost/trainline/admin/edit/".$voy['id']."' class='btn btn-primary'>edit</a>  
+            <a href='http://localhost/trainline/admin/delete/".$voy['id']."' class='btn btn-danger'>delete</a>
                 
             <td></tr>";
     }

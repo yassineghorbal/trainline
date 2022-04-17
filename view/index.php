@@ -40,8 +40,9 @@ session_start();
 
                         <?php $id =  $_SESSION['id']; ?>
                         <li class="nav-item">
-                        <a href='http://localhost/trainline/home/profile/<?= $id ?>' class='nav-link mx-1'><?= $_SESSION['email'] ?></a>
+                        <a href='http://localhost/trainline/home/profile/<?= $id ?>' class='nav-link mx-1'><?= $_SESSION['nom'] ?></a>
                         </li>
+                        
                         <li class="nav-item">
                             <a href="http://localhost/trainline/home/voyages" class="nav-link mx-1">Mes voyages</a>
                         </li>
@@ -89,7 +90,7 @@ session_start();
                     <?php
                     if (isset($_POST['submit'])) {
                         if (empty($_POST['depart']) && empty($_POST['arrivee'])) {
-                            echo "<p class='pt-3 mb-0 text-danger'>veuillez remplir les deux champs</p>";
+                            // echo <p class='pt-3 mb-0 text-danger'>veuillez remplir les deux champs</p>;
                         }
                     }
                     ?>
@@ -105,7 +106,12 @@ session_start();
 
     <!-- voyages section : table where all the trips added by the admin show and are filtered by the search of the user-->
     <div class="container mb-5">
-        <h1 class="text-center mb-5">Voyages Disponibles</h1>
+            <?php if (isset($_POST['submit'])) : ?>
+                <?php if (!empty($_POST['depart']) && !empty($_POST['arrivee'])) :
+                    $departSearch = $_POST['depart'];
+                    $arriveeSearch = $_POST['arrivee'];
+                ?>
+                <h1 class="text-center mb-5">Voyages Disponibles</h1>
         <table class="table table-striped table-hover">
             <tr>
                 <th scope="col">gare de depart</th>
@@ -115,24 +121,19 @@ session_start();
                 <th scope="col">prix</th>
 
             </tr>
-            <?php if (isset($_POST['submit'])) : ?>
-                <?php if (!empty($_POST['depart']) && !empty($_POST['arrivee'])) :
-                    $departSearch = $_POST['depart'];
-                    $arriveeSearch = $_POST['arrivee'];
-                ?>
 
-                    <?php foreach ($voyages as $voyage) : ?>
-                        <?php if ($departSearch == $voyage['depart'] && $arriveeSearch == $voyage['arrivee']) : ?>
+                    <?php foreach ($voyage as $voy) : ?>
+                        <?php if ($departSearch == $voy['depart'] && $arriveeSearch == $voy['arrivee']) : ?>
                             <tr>
-                                <td><?php echo $voyage['depart']; ?></td>
-                                <td><?php echo $voyage['arrivee']; ?></td>
-                                <td><?php echo $voyage['dateDepart']; ?></td>
-                                <td><?php echo $voyage['dateArrivee']; ?></td>
-                                <td><?php echo $voyage['prix']; ?></td>
+                                <td><?php echo $voy['depart']; ?></td>
+                                <td><?php echo $voy['arrivee']; ?></td>
+                                <td><?php echo $voy['dateDepart']; ?></td>
+                                <td><?php echo $voy['dateArrivee']; ?></td>
+                                <td><?php echo $voy['prix']; ?></td>
                                 <td>
-                                    <form action='http://localhost/trainline/reservation/reserver/<?=$voyage['id']?>' method='POST'>
+                                    <form action='http://localhost/trainline/reservation/reserver/<?=$voy['id']?>' method='POST'>
 
-                                        <input type='number' name='idVoyage' value='<?php echo $voyage['id'] ?>' hidden>
+                                        <input type='number' name='idVoyage' value='<?php echo $voy['id'] ?>' hidden>
                                         <input type='submit' name='book' value='réserver' class='btn btn-success'>
                                         
                                     </form>
@@ -142,10 +143,9 @@ session_start();
                     <?php endforeach ?>
                 <?php endif ?>
             <?php endif ?>
-
-
         </table>
     </div>
+        
     <!-- Question Accordion -->
     <section id="questions" class="m-5">
         <div class="container">

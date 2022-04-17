@@ -25,7 +25,7 @@
 
 	<nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
       <div class="container">
-        <a href="#" class="navbar-brand h1">Trainline</a>
+        <a href="http://localhost/trainline/home" class="navbar-brand h1">Trainline</a>
 
         <button
           class="navbar-toggler"

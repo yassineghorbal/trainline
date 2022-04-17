@@ -13,7 +13,7 @@ class AdminController
 
 	public function index()
 	{
-		$voyages=Admin::select();
+		$voyage=Admin::select();
 		require_once __DIR__."/../view/admin/admin.php";
 	}
 
@@ -58,7 +58,7 @@ class AdminController
 	}
 	public function delete($idVoyage)
 	{
-		$voyages=Admin::delete($idVoyage);
+		$voyage=Admin::delete($idVoyage);
 		header("Location: http://localhost/trainline/admin");
 	}
 

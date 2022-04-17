@@ -28,7 +28,7 @@ session_start();
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
         <div class="container">
-            <a href="#" class="navbar-brand h1">Trainline</a>
+            <a href="http://localhost/trainline/home" class="navbar-brand h1">Trainline</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
                 <span class="navbar-toggler-icon"></span>
@@ -39,7 +39,7 @@ session_start();
                     <?php if (isset($_SESSION['id'])) : ?>
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link mx-1"><?= $_SESSION['email'] ?></a>
+                            <a href='http://localhost/trainline/home/profile/<?= $id ?>' class="nav-link mx-1"><?= $_SESSION['nom'] ?></a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link mx-1">Mes voyages</a>
@@ -75,35 +75,17 @@ session_start();
                 <th scope="col">date de depart</th>
                 <th scope="col">date d'arrivee</th>
                 <th scope="col">prix</th>
-
             </tr>
-            <?php if (isset($_POST['submit'])) : ?>
-                <?php if (!empty($_POST['depart']) && !empty($_POST['arrivee'])) :
-                    $departSearch = $_POST['depart'];
-                    $arriveeSearch = $_POST['arrivee'];
-                ?>
 
-                    <?php foreach ($voyages as $voyage) : ?>
-                        <?php if ($departSearch == $voyage['depart'] && $arriveeSearch == $voyage['arrivee']) : ?>
-                            <tr>
-                                <td><?php echo $voyage['depart']; ?></td>
-                                <td><?php echo $voyage['arrivee']; ?></td>
-                                <td><?php echo $voyage['dateDepart']; ?></td>
-                                <td><?php echo $voyage['dateArrivee']; ?></td>
-                                <td><?php echo $voyage['prix']; ?></td>
-                                <td>
-                                    <form action='http://localhost/trainline/reservation' method='POST'>
-
-                                        <input type='number' name='idVoyage' value='<?php echo $voyage['id'] ?>' hidden>
-                                        <input type='submit' name='book' value='réserver' class='btn btn-success'>
-                                        
-                                    </form>
-                                <td>
-                            </tr>
-                        <?php endif ?>
-                    <?php endforeach ?>
-                <?php endif ?>
-            <?php endif ?>
+            <!-- </tr>
+                <td><?php echo $voyage['depart']; ?></td>
+                <td><?php echo $voyage['arrivee']; ?></td>
+                <td><?php echo $voyage['dateDepart']; ?></td>
+                <td><?php echo $voyage['dateArrivee']; ?></td>
+                <td><?php echo $voyage['prix']; ?></td>
+                
+            </tr> -->
+                    
         </table>
     </div>
 

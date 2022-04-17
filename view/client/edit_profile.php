@@ -28,8 +28,7 @@ session_start();
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
         <div class="container">
-            <a href="#" class="navbar-brand h1">Trainline</a>
-
+            <a href="http://localhost/trainline/home" class="navbar-brand h1">Trainline</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -39,7 +38,7 @@ session_start();
                     <?php if (isset($_SESSION['id'])) : ?>
 
                         <li class="nav-item">
-                            <a href='#' class='nav-link mx-1'><?= $_SESSION['email'] ?></a>
+                            <a href='#' class='nav-link mx-1'><?= $_SESSION['nom'] ?></a>
                         </li>
                         <li class="nav-item">
                             <a href="http://localhost/trainline/home/voyages" class="nav-link mx-1">Mes voyages</a>
@@ -65,9 +64,10 @@ session_start();
     </nav>
 
 
-    <!-- personal info -->
+    <!-- edit personal info -->
     
     <div class="container-lg">
+        <h3 class="text-center mb-5">Modifier Vos Informations Personnelles</h3>
 		<form action="http://localhost/trainline/home/update/<?=$user['id']?>" method="POST">
 				<div class="col-md w-50 mx-auto">
 					<label class="form-label">nom</label>

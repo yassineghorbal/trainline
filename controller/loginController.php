@@ -26,6 +26,4 @@ class LoginController
 		session_destroy();
 		header('Location: http://localhost/trainline/home');
 	}
-
-
 }

@@ -5,15 +5,9 @@ require_once "Connection.php";
 
 class Login
 {
-	// private $table="users";
-	// private $email;
-    // private $password;
-	// private $nom;
-	public function __construct($email,$password,$nom)
+	public function __construct()
 	{
-		$this->email=$email;
-		$this->password=$password;
-		$this->nom=$nom;
+		
 	}
 
 
@@ -29,8 +23,7 @@ class Login
 
 		if ($password_post == $row['password']){
 			session_start();
-			$_SESSION['email'] = $row['email'];
-			// $_SESSION['nom'] = $row['nom'];
+			$_SESSION['nom'] = $row['nom'];
 			$_SESSION['id'] = $row['id'];
 			header('Location: http://localhost/trainline/home');
 		}else{
