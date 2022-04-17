@@ -32,4 +32,12 @@ class Login
 
 	}
 
+	public static function logout()
+	{
+		session_start();
+		unset($_SESSION['nom']);
+		session_destroy();
+		header('Location: http://localhost/trainline/home');
+	}
+
 }

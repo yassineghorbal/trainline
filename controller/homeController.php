@@ -44,4 +44,6 @@ class HomeController
 		$user->update($id);
 		header("Location: http://localhost/trainline/home/profile/$id");
 	}
+
+	
 }

@@ -10,8 +10,6 @@ class Reservation{
 
 	function __construct()
 	{
-		$this->id =
-		$this->ctn = new Connection;
 	}
 
 	public function insertTicket($id, $idVoyage)
@@ -24,6 +22,30 @@ class Reservation{
 	{
 		$ctn=new Connection();
 		return $ctn->selectOne("voyages",$id);
+	}
+
+	public function search($departSearch, $arriveeSearch)
+	{
+		$ctn = new Connection();
+		$str="SELECT * FROM voyages WHERE depart = '$departSearch' AND arrivee = '$arriveeSearch'";
+		$query = $ctn->prepare($str);
+
+		$query->execute();
+		$row = $query->fetch(PDO::FETCH_ASSOC);
+
+		if($departSearch == $row['depart'] && $arriveeSearch == $row['arrivee'])
+		{
+			foreach ($row as $voyage) :
+                $dateDepart = $row['dateDepart'];
+                $dateArrivee = $row['dateArrivee'];
+                $prix = $row['prix'];
+                $depart = $row['depart'];
+                $arrivee = $row['arrivee'];
+        
+            endforeach;
+		}else{
+			header('Location: http://localhost/trainline/home');
+		}
 	}
 
 

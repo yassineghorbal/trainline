@@ -19,11 +19,8 @@ class LoginController
 		}
 	}
 
-	public static function logout()
+	public function logout()
 	{
-		session_start();
-		unset($_SESSION['email']);
-		session_destroy();
-		header('Location: http://localhost/trainline/home');
+		Login::logout();
 	}
 }

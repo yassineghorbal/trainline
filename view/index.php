@@ -66,14 +66,12 @@ session_start();
         </div>
     </nav>
 
-
     <!-- search for available trips -->
-
     <section class="d-flex  justify-content-center ">
 
         <div class="container">
             <h1 class="text-center mt-5">Trouver un voyage</h1>
-            <form class='p-5 text-light d-flex justify-content-center flex-column' action='http://localhost/trainline/home' method='POST'>
+            <form class='p-5 text-light d-flex justify-content-center flex-column' action='http://localhost/trainline/reservation/search' method='POST'>
                 <div class="row mb-5">
                     <div class="col-md">
                         <div class="form-outline">
@@ -96,7 +94,7 @@ session_start();
                     ?>
                 </div>
                 <!-- Submit button -->
-                <button type='submit' name='submit' class="btn btn-primary btn-block mb-5 w-25 mx-auto">
+                <button type='submit' name='search' class="btn btn-primary btn-block mb-5 w-25 mx-auto">
                     Search
                 </button>
             </form>
@@ -106,7 +104,7 @@ session_start();
 
     <!-- voyages section : table where all the trips added by the admin show and are filtered by the search of the user-->
     <div class="container mb-5">
-            <?php if (isset($_POST['submit'])) : ?>
+            <?php if (isset($_POST['search'])) : ?>
                 <?php if (!empty($_POST['depart']) && !empty($_POST['arrivee'])) :
                     $departSearch = $_POST['depart'];
                     $arriveeSearch = $_POST['arrivee'];
