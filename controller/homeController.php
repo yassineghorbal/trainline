@@ -26,5 +26,22 @@ class HomeController
 		$user= Home::view($id);
 		require_once __DIR__."/../view/client/profile.php";
 	}
-	
+
+
+	public function edit($id)
+	{
+		$user= Home::view($id);
+		require_once __DIR__."/../view/client/edit_profile.php";
+	}
+
+	public function update($id)
+	{
+		$nom=$_POST['nom'];
+		$prenom=$_POST['prenom'];
+		$telephone=$_POST['telephone'];
+		$email=$_POST['email'];
+		$user=new Home($nom,$prenom,$telephone,$email);
+		$user->update($id);
+		header("Location: http://localhost/trainline/home/profile/$id");
+	}
 }

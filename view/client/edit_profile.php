@@ -68,20 +68,21 @@ session_start();
     <!-- personal info -->
     
     <div class="container-lg">
-		<form action="">
+		<form action="http://localhost/trainline/home/update/<?=$user['id']?>" method="POST">
 				<div class="col-md w-50 mx-auto">
 					<label class="form-label">nom</label>
-					<input type="text" class="form-control" name="nom" value="<?=$user['nom']?>" readonly><br>
+					<input type="text" class="form-control" name="nom" value="<?=$user['nom']?>"><br>
 					<label class="form-label">prenom</label>
-					<input type="text" class="form-control" name="prenom" value="<?=$user['prenom']?>" readonly><br>
+					<input type="text" class="form-control" name="prenom" value="<?=$user['prenom']?>"><br>
 					<label class="form-label">telephone</label>
-					<input type="phone" class="form-control" name="telephone" value="<?=$user['telephone']?>" readonly><br>
+					<input type="phone" class="form-control" name="telephone" value="<?=$user['telephone']?>"><br>
 					<label class="form-label">email</label>
-					<input type="email" class="form-control" name="email" value="<?=$user['email']?>" readonly><br>
-                    <?php $id =  $_SESSION['id']; ?>
-                    <a href='http://localhost/trainline/home/edit/<?= $id ?>' class='btn btn-primary'>Edit profile</a>
+					<input type="email" class="form-control" name="email" value="<?=$user['email']?>"><br>
+
+                    <button class="btn btn-success">sauvegarder</button>
+                    <a href="http://localhost/trainline/home/profile/<?=$user['id']?>" class="btn btn-warning">annuler</a>
 				</div>
-			
+                
 		</form>
 	</div>
 
