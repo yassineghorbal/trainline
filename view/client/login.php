@@ -73,6 +73,8 @@
 			
 			<button class="btn btn-success" name="login">se connecter</button>
 			<a href="http://localhost/trainline/home" class="btn btn-warning">annuler</a>
+
+      
 		</form> 
 	</div>
     

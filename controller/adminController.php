@@ -22,10 +22,6 @@ class AdminController
 		require_once __DIR__."/../view/admin/create.php";
 	}
 
-	public function login(){
-		
-	}
-
 
 	public function save()
 	{
