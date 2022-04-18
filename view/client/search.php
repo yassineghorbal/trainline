@@ -78,9 +78,9 @@ session_start();
                 <?php 
                     $array = array($result);
 
-                    // echo "<pre>";
-                    // print_r($array);
-                    // echo "<pre>";
+                    echo "<pre>";
+                    print_r($array);
+                    echo "<pre>";
                 ?>
                 <?php foreach ($array as $x): ?>
                     <td><?= $x['depart']; ?></td>
@@ -88,6 +88,14 @@ session_start();
                     <td><?= $x['dateDepart']; ?></td>
                     <td><?= $x['dateArrivee']; ?></td>
                     <td><?= $x['prix']; ?></td>
+                    <td>
+                        <form action='http://localhost/trainline/reservation/view/<?= $x['id'] ?>' method='POST'>
+
+                            <input type='number' name='idVoyage' value='<?php echo $x['id'] ?>' hidden>
+                            <input type='submit' name='view' value='réserver' class='btn btn-success'>
+                            
+                        </form>
+                    <td>
                 <?php endforeach; ?>
             </tr>
         </table>

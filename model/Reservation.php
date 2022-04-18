@@ -25,28 +25,23 @@ class Reservation{
 		}
 	}
 	
-	public function view($idUser, $idVoyage)
+	public function view($id)
 	{
-		session_start();
-		$idUser = $_SESSION['id'];
-		$idVoyage = $_POST['id'];
+		
 		$ctn = new Connection();
-		if(isset($_SESSION['id']) && isset($_POST['view']))
+		if(isset($_POST['view']))
 		{
-			return $ctn->selectOne("voyages",$idVoyage);
-			return $ctn->selectOne("users",$idUser);
+			return $ctn->selectOne("voyages", $id);
+			// return $ctn->selectOne("users",$_SESSION['id']);
 		}
 	}
 
-	public function book()
+	public function book($idUser, $id)
 	{
-		session_start();
-		$id = $_SESSION['id'];
-		$idVoyage = $_POST['idVoyage'];
 		$ctn = new Connection();
 		if(isset($_SESSION['id']) && isset($_POST['book']))
 		{
-			$ctn->insert($this->table, ["idUser", "idVoyage"], [$id, $idVoyage]);
+			$ctn->insert($this->table, ["idUser", "idVoyage"], [$idUser, $id]);
 		}
 	}
 
