@@ -12,11 +12,10 @@ class Connection
 	{
 
 		try {
-			  $this->conn = new PDO("mysql:host=$this->servername;dbname=$this->database", $this->username, $this->password);
-		
+			$this->conn = new PDO("mysql:host=$this->servername;dbname=$this->database", $this->username, $this->password);
 			} catch(PDOException $e) 
 			{
-			  echo "Connection failed: " . $e->getMessage();
+			echo "Connection failed: " . $e->getMessage();
 			}
 	}
 

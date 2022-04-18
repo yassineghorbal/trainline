@@ -12,12 +12,16 @@ class ReservationController
 
 	public function search()
 	{
-		require_once __DIR__."/../view/client/search.php";
-		$search = new Reservation();
-		if(isset($_POST['search']))
+		$reservation = new Reservation();
+		$search = $_POST['search'];
+		if(isset($search))
 		{
-			$search->search($_POST['depart'], $_POST['arrivee']);
+			$result = $reservation->search($_POST['depart'], $_POST['arrivee']);
+			// print_r($result);
+			require_once __DIR__."/../view/client/search.php";
 		}
+		
+		
 	}
 
 }

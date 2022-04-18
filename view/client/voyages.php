@@ -37,7 +37,7 @@ session_start();
             <div class="collapse navbar-collapse" id="navmenu">
                 <ul class="navbar-nav ms-auto">
                     <?php if (isset($_SESSION['id'])) : ?>
-
+                        <?php $id =  $_SESSION['id']; ?>
                         <li class="nav-item">
                             <a href='http://localhost/trainline/home/profile/<?= $id ?>' class="nav-link mx-1"><?= $_SESSION['nom'] ?></a>
                         </li>

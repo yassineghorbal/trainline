@@ -85,13 +85,13 @@ session_start();
                             <input type="text" name="arrivee" class="form-control" required>
                         </div>
                     </div>
-                    <?php
+                    <!-- <?php
                     if (isset($_POST['submit'])) {
                         if (empty($_POST['depart']) && empty($_POST['arrivee'])) {
                             // echo <p class='pt-3 mb-0 text-danger'>veuillez remplir les deux champs</p>;
                         }
                     }
-                    ?>
+                    ?> -->
                 </div>
                 <!-- Submit button -->
                 <button type='submit' name='search' class="btn btn-primary btn-block mb-5 w-25 mx-auto">
@@ -103,46 +103,6 @@ session_start();
     </section>
 
     <!-- voyages section : table where all the trips added by the admin show and are filtered by the search of the user-->
-    <div class="container mb-5">
-            <?php if (isset($_POST['search'])) : ?>
-                <?php if (!empty($_POST['depart']) && !empty($_POST['arrivee'])) :
-                    $departSearch = $_POST['depart'];
-                    $arriveeSearch = $_POST['arrivee'];
-                ?>
-                <h1 class="text-center mb-5">Voyages Disponibles</h1>
-        <table class="table table-striped table-hover">
-            <tr>
-                <th scope="col">gare de depart</th>
-                <th scope="col">gare d'arrivee</th>
-                <th scope="col">date de depart</th>
-                <th scope="col">date d'arrivee</th>
-                <th scope="col">prix</th>
-
-            </tr>
-
-                    <?php foreach ($voyage as $voy) : ?>
-                        <?php if ($departSearch == $voy['depart'] && $arriveeSearch == $voy['arrivee']) : ?>
-                            <tr>
-                                <td><?php echo $voy['depart']; ?></td>
-                                <td><?php echo $voy['arrivee']; ?></td>
-                                <td><?php echo $voy['dateDepart']; ?></td>
-                                <td><?php echo $voy['dateArrivee']; ?></td>
-                                <td><?php echo $voy['prix']; ?></td>
-                                <td>
-                                    <form action='http://localhost/trainline/reservation/reserver/<?=$voy['id']?>' method='POST'>
-
-                                        <input type='number' name='idVoyage' value='<?php echo $voy['id'] ?>' hidden>
-                                        <input type='submit' name='book' value='réserver' class='btn btn-success'>
-                                        
-                                    </form>
-                                <td>
-                            </tr>
-                        <?php endif ?>
-                    <?php endforeach ?>
-                <?php endif ?>
-            <?php endif ?>
-        </table>
-    </div>
         
     <!-- Question Accordion -->
     <section id="questions" class="m-5">

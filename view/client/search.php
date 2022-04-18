@@ -37,12 +37,12 @@ session_start();
             <div class="collapse navbar-collapse" id="navmenu">
                 <ul class="navbar-nav ms-auto">
                     <?php if (isset($_SESSION['id'])) : ?>
-
+                        <?php $id =  $_SESSION['id']; ?>
                         <li class="nav-item">
                             <a href='http://localhost/trainline/home/profile/<?= $id ?>' class="nav-link mx-1"><?= $_SESSION['nom'] ?></a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link mx-1">Mes voyages</a>
+                            <a href="http://localhost/trainline/home/voyages" class="nav-link mx-1">Mes voyages</a>
                         </li>
                         <li class="nav-item">
                             <a href="http://localhost/trainline/login/logout" class="nav-link mx-1">Se deconnecter</a>
@@ -74,21 +74,28 @@ session_start();
                 <th scope="col">date d'arrivee</th>
                 <th scope="col">prix</th>
             </tr>
+            <tr>
+                <?php 
+                    $array = array($result);
 
-            <?php foreach ($row as $voyage) : ?>
-                <td><?php echo $voyage['depart']; ?></td>
-                <td><?php echo $voyage['arrivee']; ?></td>
-                <td><?php echo $voyage['dateDepart']; ?></td>
-                <td><?php echo $voyage['dateArrivee']; ?></td>
-                <td><?php echo $voyage['prix']; ?></td>
-                
-            <?php endforeach ?>
+                    // echo "<pre>";
+                    // print_r($array);
+                    // echo "<pre>";
+                ?>
+                <?php foreach ($array as $x): ?>
+                    <td><?= $x['depart']; ?></td>
+                    <td><?= $x['arrivee']; ?></td>
+                    <td><?= $x['dateDepart']; ?></td>
+                    <td><?= $x['dateArrivee']; ?></td>
+                    <td><?= $x['prix']; ?></td>
+                <?php endforeach; ?>
+            </tr>
         </table>
     </div>
 
 
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 
 </body>
