@@ -38,4 +38,5 @@ class Home
 		$ctn=new Connection();
 		$ctn->update($this->table,["nom","prenom","telephone","email"],[$this->nom,$this->prenom,$this->telephone,$this->email],$id);
 	}
+
 }

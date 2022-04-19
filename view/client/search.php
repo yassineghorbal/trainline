@@ -42,7 +42,7 @@ session_start();
                             <a href='http://localhost/trainline/home/profile/<?= $id ?>' class="nav-link mx-1"><?= $_SESSION['nom'] ?></a>
                         </li>
                         <li class="nav-item">
-                            <a href="http://localhost/trainline/home/voyages" class="nav-link mx-1">Mes voyages</a>
+                            <a href="http://localhost/trainline/reservation/voyages/<?= $id ?>" class="nav-link mx-1">Mes voyages</a>
                         </li>
                         <li class="nav-item">
                             <a href="http://localhost/trainline/login/logout" class="nav-link mx-1">Se deconnecter</a>
@@ -77,10 +77,6 @@ session_start();
             <tr>
                 <?php 
                     $array = array($result);
-
-                    echo "<pre>";
-                    print_r($array);
-                    echo "<pre>";
                 ?>
                 <?php foreach ($array as $x): ?>
                     <td><?= $x['depart']; ?></td>
@@ -91,7 +87,6 @@ session_start();
                     <td>
                         <form action='http://localhost/trainline/reservation/view/<?= $x['id'] ?>' method='POST'>
 
-                            <input type='number' name='idVoyage' value='<?php echo $x['id'] ?>' hidden>
                             <input type='submit' name='view' value='réserver' class='btn btn-success'>
                             
                         </form>

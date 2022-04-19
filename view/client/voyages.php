@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 ?>
 <!doctype html>
 <html lang="en">
@@ -65,35 +65,38 @@ session_start();
     </nav>
 
 
+    <div class="container mb-5">
+        <h1 class="text-center mb-5">Voyages Réservés</h1>
+        <table class="table table-striped table-hover">
+            <tr>
+                <th scope="col">gare de depart</th>
+                <th scope="col">gare d'arrivee</th>
+                <th scope="col">date de depart</th>
+                <th scope="col">date d'arrivee</th>
+                <th scope="col">prix</th>
+            </tr>
+            <tr>
+                <?php 
+                    $array = array($result);
+                ?>
+                <?php foreach ($array as $x): ?>
+                    <td><?= $x['depart']; ?></td>
+                    <td><?= $x['arrivee']; ?></td>
+                    <td><?= $x['dateDepart']; ?></td>
+                    <td><?= $x['dateArrivee']; ?></td>
+                    <td><?= $x['prix']; ?></td>
+                    <td>
+                        <form action='http://localhost/trainline/reservation/cancel/<?= $x['id'] ?>' method='POST'>
 
+                            <input type='submit' name='view' value='annuler' class='btn btn-danger'>
+                            
+                        </form>
+                    <td>
 
-
-
-        <!-- Footer -->
-        <footer class="p-5 mt-2 bg-light text-center position-relative">
-            <div class="container">
-
-
-
-                <p class="lead">Copyright &copy; 2021 trainline.ma</p>
-                <div class="p-1">
-                    <a href="#" class="text-decoration-none">
-                        <i class="bi bi-facebook h3 m-1"></i>
-                    </a>
-                    <a href="#" class="text-decoration-none">
-                        <i class="bi bi-instagram h3 m-1"></i>
-                    </a>
-                    <a href="#" class="text-decoration-none">
-                        <i class="bi bi-twitter h3 m-1"></i>
-                    </a>
-
-                </div>
-
-                <a href="#" class="position-absolute bottom-0 end-0 p-5">
-                    <i class="bi bi-arrow-up-circle h1"></i>
-                </a>
-            </div>
-        </footer>
+                <?php endforeach; ?>
+            </tr>
+        </table>
+    </div>
 
 
 

@@ -45,4 +45,28 @@ class Reservation{
 		}
 	}
 
+	public function voyages($idUser)
+	{
+		$idUser = $_SESSION['id'];
+
+		$ctn = new Connection();
+		// $str="SELECT voyages.dateDepart, voyages.dateArrivee, voyages.depart, voyages.arrivee, voyages.prix FROM voyages INNER JOIN users ON users.id = tickets.idUser;";
+		$str = "SELECT * FROM tickets 
+		INNER JOIN voyages
+		ON tickets.idVoyage = voyages.id
+		INNER JOIN users
+		ON tickets.idUser = users.id
+		WHERE users.id = $idUser";
+		$query = $ctn->prepare($str);
+
+		$query->execute();
+		$row = $query->fetch(PDO::FETCH_ASSOC);
+
+		if(count($row) > 0){
+			return $row;
+		}else{
+			echo "réserver un voyage pour le voir ici";
+		}
+	}
+
 }

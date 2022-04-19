@@ -44,7 +44,7 @@ session_start();
                         </li>
                         
                         <li class="nav-item">
-                            <a href="http://localhost/trainline/home/voyages" class="nav-link mx-1">Mes voyages</a>
+                            <a href="http://localhost/trainline/reservation/voyages/<?= $id ?>" class="nav-link mx-1">Mes voyages</a>
                         </li>
                         <li class="nav-item">
                             <a href="http://localhost/trainline/login/logout" class="nav-link mx-1">Se deconnecter</a>

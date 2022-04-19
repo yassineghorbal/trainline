@@ -34,13 +34,26 @@ class ReservationController
 	{
 		session_start();
 		$idUser = $_SESSION['id'];
-		// $idVoyage = $_POST['id'];
 
 		$reservation = new Reservation();
 
 		$reservation->book($idUser, $id);
 
 		header("location: http://localhost/trainline/home/voyages");
+	}
+
+	public function voyages($idUser)
+	{
+		$reservation = new Reservation();
+		session_start();
+		$idUser = $_SESSION['id'];
+
+		if(isset($_SESSION['id'])){
+
+		$result = $reservation->voyages($idUser);
+		// print_r($result);
+		require_once __DIR__."/../view/client/voyages.php";
+		}
 	}
 
 }
