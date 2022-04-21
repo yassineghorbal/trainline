@@ -39,7 +39,7 @@ class ReservationController
 
 		$reservation->book($idUser, $id);
 
-		header("location: http://localhost/trainline/home/voyages");
+		header("location: http://localhost/trainline/reservation/voyages/$idUser");
 	}
 
 	public function voyages($idUser)
@@ -56,4 +56,20 @@ class ReservationController
 		}
 	}
 
+	public function cancel($id)
+	{
+		session_start();
+		$idUser = $_SESSION['id'];
+
+		$reservation = new Reservation();
+
+		echo $id;
+
+		if($reservation->cancel($id)){
+			header("location: http://localhost/trainline/home");
+		}else{
+			header("location: http://localhost/trainline/reservation/voyages/$idUser");
+		}
+
+	}
 }

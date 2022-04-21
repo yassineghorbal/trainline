@@ -19,7 +19,8 @@ class Connection
 			}
 	}
 
-
+	
+	
 	public function insert($table,$tableCln,$tableVal)
 	{
 		$names="";
@@ -38,23 +39,23 @@ class Connection
 		$query=$this->conn->prepare($str);
 		$query->execute();
 	}
-
-
+	
+	
 	public function selectAll($table)
 	{
 		$query=$this->conn->prepare("SELECT * FROM `$table`");
 		$query->execute();
 		return $query->fetchAll(PDO::FETCH_ASSOC); 
 	}
-
-
+	
+	
 	public function selectOne($table,$id)
 	{
 		$query=$this->conn->prepare("SELECT * FROM `$table` where id=$id");
 		$query->execute();
 		return $query->fetchAll(PDO::FETCH_ASSOC)[0];
 	}
-
+	
 
 	public function update($table,$tableCln,$tableVal,$id)
 	{
@@ -72,18 +73,17 @@ class Connection
 		$query=$this->conn->prepare($str);
 		$query->execute();
 	}
-
-
+	
+	
 	public function delete($table,$id)
 	{
 		$query=$this->conn->prepare("DELETE FROM `$table` WHERE id=$id");
 		$query->execute();
 	}
-
+	
 	public function prepare($sql)
 	{
 		return $this->conn->prepare($sql);
 	}
-
-
+	
 }

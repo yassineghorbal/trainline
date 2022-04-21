@@ -88,7 +88,7 @@
                     <td>
                         <form action='http://localhost/trainline/reservation/cancel/<?= $x['id'] ?>' method='POST'>
 
-                            <input type='submit' name='view' value='annuler' class='btn btn-danger'>
+                            <input type='submit' name='cancel' value='annuler' class='btn btn-danger'>
                             
                         </form>
                     <td>

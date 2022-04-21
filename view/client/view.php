@@ -87,6 +87,7 @@ session_start();
 				</div>
 			</div>
             <button name="book" type="submit" class="btn btn-success">Réserver</button>
+            <a href="http://localhost/trainline/home" class="btn btn-warning m-2">annuler</a>
 		</form>
 	</div>
 

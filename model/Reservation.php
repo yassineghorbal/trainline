@@ -27,12 +27,10 @@ class Reservation{
 	
 	public function view($id)
 	{
-		
 		$ctn = new Connection();
 		if(isset($_POST['view']))
 		{
 			return $ctn->selectOne("voyages", $id);
-			// return $ctn->selectOne("users",$_SESSION['id']);
 		}
 	}
 
@@ -50,7 +48,7 @@ class Reservation{
 		$idUser = $_SESSION['id'];
 
 		$ctn = new Connection();
-		// $str="SELECT voyages.dateDepart, voyages.dateArrivee, voyages.depart, voyages.arrivee, voyages.prix FROM voyages INNER JOIN users ON users.id = tickets.idUser;";
+		
 		$str = "SELECT * FROM tickets 
 		INNER JOIN voyages
 		ON tickets.idVoyage = voyages.id
@@ -66,6 +64,19 @@ class Reservation{
 			return $row;
 		}else{
 			echo "réserver un voyage pour le voir ici";
+		}
+
+	}
+
+	public function cancel($id)
+	{
+		$idUser = $_SESSION['id'];
+		$ctn = new Connection();
+		if(isset($_POST['cancel']))
+		{
+			$str = "DELETE FROM tickets WHERE idUser = $idUser AND idVoyage = $id";
+			$query = $ctn->prepare($str);
+			return $query->execute();
 		}
 	}
 
