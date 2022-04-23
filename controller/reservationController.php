@@ -68,9 +68,6 @@ class ReservationController
 		if($reservation->cancel($id)){
 			header("location: http://localhost/trainline/home");
 		}else{
-
-
-			
 			header("location: http://localhost/trainline/reservation/voyages/$idUser");
 		}
 
