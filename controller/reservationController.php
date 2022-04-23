@@ -66,6 +66,7 @@ class ReservationController
 		echo $id;
 
 		if($reservation->cancel($id)){
+			require_once __DIR__ . "/../view/client/voyages.php";
 			header("location: http://localhost/trainline/home");
 		}else{
 			header("location: http://localhost/trainline/reservation/voyages/$idUser");
