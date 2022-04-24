@@ -59,18 +59,17 @@ class ReservationController
 		}
 	}
 
-	public function cancel($id)
+	public function cancel($id, $idVoyage, $idUser)
 	{
-		// session_start();
-		// $idUser = $_SESSION['id'];
+		session_start();
+		$idUser = $_SESSION['id'];
 
 		$reservation = new Reservation();
 
 		
-		if($reservation->cancel($id))
+		if($reservation->cancel($id, $idVoyage, $idUser))
 		{
 			require_once __DIR__ . "/../view/index.php";
-      
 		}else{
 			require_once __DIR__ . "/../view/client/voyages.php";
 		}
