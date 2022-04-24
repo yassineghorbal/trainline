@@ -74,11 +74,12 @@ session_start();
                 <th scope="col">date d'arrivee</th>
                 <th scope="col">prix</th>
             </tr>
-            <tr>
-                <?php 
-                    $array = array($result);
-                ?>
-                <?php foreach ($array as $x): ?>
+            <?php 
+                $array = array($result);
+            ?>
+            <?php foreach ($array as $row): ?>
+                <?php foreach ($row as $x): ?>
+                    <tr>
                     <td><?= $x['depart']; ?></td>
                     <td><?= $x['arrivee']; ?></td>
                     <td><?= $x['dateDepart']; ?></td>
@@ -91,8 +92,10 @@ session_start();
                             
                         </form>
                     <td>
+                    </tr>
                 <?php endforeach; ?>
-            </tr>
+            
+            <?php endforeach; ?>
         </table>
     </div>
 

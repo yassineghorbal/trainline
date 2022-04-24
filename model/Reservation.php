@@ -15,18 +15,19 @@ class Reservation{
 		$query = $ctn->prepare($str);
 
 		$query->execute();
-		$result = $query->fetchAll();
+		$result = $query->fetchAll(PDO::FETCH_ASSOC);
 
-		$row = array($result);
+		// $row = array($result);
 
-		if(true)
+		if(count($result) > 0)
 		{
-			echo "<pre>";
-			print_r($row);
-			echo "<pre>";
+			// echo "<pre>";
+			// print_r($result);
+			// echo "<pre>";
+			return $result;
 		}else{
 			// header('Location: http://localhost/trainline/home');
-			// echo 'no';
+			echo '<h1>there are no records !!!!!!!</h1>';
 		}
 	}
 	
