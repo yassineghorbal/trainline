@@ -73,7 +73,6 @@
                 <th scope="col">gare d'arrivee</th>
                 <th scope="col">date de depart</th>
                 <th scope="col">date d'arrivee</th>
-                <th scope="col">nombre de places</th>
                 <th scope="col">prix</th>
             </tr>
             <tr>
