@@ -1,5 +1,5 @@
 <?php
-// session_start();
+session_start();
 ?>
 <!doctype html>
 <html lang="en">
@@ -37,9 +37,9 @@
             <div class="collapse navbar-collapse" id="navmenu">
                 <ul class="navbar-nav ms-auto">
                     <?php if (isset($_SESSION['id'])) : ?>
-                        <?php $id =  $_SESSION['id']; ?>
+                        <?php $idUser =  $_SESSION['id']; ?>
                         <li class="nav-item">
-                            <a href='http://localhost/trainline/home/profile/<?= $id ?>' class="nav-link mx-1"><?= ucfirst($_SESSION['nom']) ?></a>
+                            <a href='http://localhost/trainline/home/profile/<?= $idUser ?>' class="nav-link mx-1"><?= ucfirst($_SESSION['nom']) ?></a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link mx-1">Mes voyages</a>
@@ -79,11 +79,11 @@
                                 <h4 class="card-title"><?= ucfirst($x['depart']); ?> <i class="bi bi-arrow-right"></i> <?= ucfirst($x['arrivee']); ?></h4>
                                 <h6><?= $x['prix']; ?> DH</h6>
                                 <p class="card-text"><?= $x['dateDepart']; ?> <i class="bi bi-arrow-right"></i> <?= $x['dateArrivee']; ?></p>
-                                <br>
-                                <form action='http://localhost/trainline/reservation/cancel/<?= $x['id'] ?>' method='POST'>
-
-                                <input type='submit' name='cancel' value='Annuler réservation' class='btn btn-danger'>
-
+                                <?php if($x['canceled'] == 0) : ?>
+                                    <a class="btn btn-danger" href="http://localhost/trainline/reservation/cancel/<?= $x['id'] ?>"> Annuler</a>
+                                <?php else : ?>
+                                    <p class="text-danger">Annulé</p>
+                                <?php endif; ?>
                                 </form>
                             </div>        
                         </div>

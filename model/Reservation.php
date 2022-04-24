@@ -11,7 +11,7 @@ class Reservation{
 	public function search($departSearch, $arriveeSearch)
 	{
 		$ctn = new Connection();
-		$str="SELECT * FROM voyages WHERE depart = '$departSearch' AND arrivee = '$arriveeSearch' AND canceled = 0 AND dateDepart > CURRENT_TIMESTAMP";
+		$str="SELECT * FROM voyages WHERE depart = '$departSearch' AND arrivee = '$arriveeSearch' AND canceled = 0 AND dateDepart > CURRENT_TIMESTAMP ORDER BY dateDepart";
 		$query = $ctn->prepare($str);
 
 		$query->execute();
@@ -75,18 +75,19 @@ class Reservation{
 
 	}
 
-	public function cancel($id)
+	public function cancel($id, $idVoyage, $idUser)
 	{
 		session_start();
 		$idUser = $_SESSION['id'];
 		$ctn = new Connection();
-		if(isset($_SESSION['id']) && isset($_POST['cancel']))
+		if(isset($_SESSION['id']))
 		{
-			$str = "UPDATE `tickets` SET `canceled`='1' WHERE idUser = $idUser AND idVoyage = $id";
+			$str = "UPDATE `tickets` SET `canceled`='1' WHERE idUser = $idUser AND idVoyage = $idVoyage AND id = $id";
 			$query = $ctn->prepare($str);
-			return $query->execute();
+			$query->execute();
+			echo 'hello in';
 		}else{
-			echo "nnnnnnnnnnnnnnnn";
+			echo "nnn";
 		}
 	}
 

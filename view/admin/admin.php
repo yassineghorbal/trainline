@@ -26,7 +26,7 @@
 
     <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 fixed-top">
       <div class="container">
-        <a href="#" class="navbar-brand h1">Trainline</a>
+        <a href="http://localhost/trainline/admin" class="navbar-brand h1">Trainline</a>
 
         <button
           class="navbar-toggler"
@@ -48,12 +48,12 @@
           </ul>
           
         </div>
-      </div>
+    </div>
     </nav>
 
 
-    <div class="container-lg">
-    <table class="table">
+    <div class="container" style="overflow-x: auto">
+    <table class="table" style="min-width:1000px">
         <tr>
         <!-- <th scope="col">id</th> -->
         <th scope="col">date de depart</th>
@@ -77,13 +77,13 @@
             <td>
 
             <?php if($voy['canceled'] == 0) : ?>
-                <a href='http://localhost/trainline/admin/edit/<?= $voy['id'] ?>' class='btn btn-primary'>Éditer</a>  
+                <a href='http://localhost/trainline/admin/edit/<?= $voy['id'] ?>' class='btn btn-primary'><i class="bi bi-pencil-square"></i> Éditer</a>  
 
-                <a href='http://localhost/trainline/admin/delete/<?= $voy['id']?>' class='btn btn-danger'>Annuler</a>
+                <a href='http://localhost/trainline/admin/delete/<?= $voy['id']?>' class='btn btn-danger'><i class="bi bi-x-square"></i> Annuler</a>
             <?php else : ?>
                 <div class="d-flex">
                 <p class="text-danger m-1">Annulé</p>
-                <a href='http://localhost/trainline/admin/undo/<?= $voy['id']?>' class='d-inline btn btn-primary'>Rendre Disponible</a>
+                <a href='http://localhost/trainline/admin/undo/<?= $voy['id']?>' class='d-inline btn btn-primary'><i class="bi bi-arrow-counterclockwise"></i> Rendre Disponible</a>
                 </div>
             <?php endif; ?>
             <td></tr>
@@ -92,7 +92,7 @@
     
     </table>
 
-    <a href="http://localhost/trainline/admin/create" class="btn btn-success mx-auto d-block w-25">ajouter un voyage</a>
+    <a href="http://localhost/trainline/admin/create" class="btn btn-success mx-auto d-block w-25"><i class="bi bi-plus-square-dotted"></i> Ajouter Voyage</a>
     
     </div>
 
