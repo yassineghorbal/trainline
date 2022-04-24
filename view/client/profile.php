@@ -76,7 +76,7 @@ session_start();
 					<label class="form-label">prenom</label>
 					<input type="text" class="form-control" name="prenom" value="<?=$user['prenom']?>" readonly><br>
 					<label class="form-label">telephone</label>
-					<input type="phone" class="form-control" name="telephone" value="<?=$user['telephone']?>" readonly><br>
+					<input type="tel" class="form-control" name="telephone" value="<?=$user['telephone']?>" readonly><br>
 					<label class="form-label">email</label>
 					<input type="email" class="form-control" name="email" value="<?=$user['email']?>" readonly><br>
                     <?php $id =  $_SESSION['id']; ?>

@@ -11,7 +11,7 @@ class Reservation{
 	public function search($departSearch, $arriveeSearch)
 	{
 		$ctn = new Connection();
-		$str="SELECT * FROM voyages WHERE depart = '$departSearch' AND arrivee = '$arriveeSearch'";
+		$str="SELECT * FROM voyages WHERE depart = '$departSearch' AND arrivee = '$arriveeSearch' AND canceled = 0 AND dateDepart > CURRENT_TIMESTAMP";
 		$query = $ctn->prepare($str);
 
 		$query->execute();
@@ -26,7 +26,9 @@ class Reservation{
 			// echo "<pre>";
 			return $result;
 		}else{
-			echo '<h1>there are no records !!!!!!!</h1>';
+			// echo '<h1>there are no records !!!!!!!</h1>';
+			header('location: http://localhost/trainline/home');
+			// echo '<script type="text/javascript">alert("Stupid message");history.go(-1);</script>';
 		}
 	}
 	
@@ -65,23 +67,26 @@ class Reservation{
 		$query->execute();
 		$row = $query->fetchAll();
 
-		if(count($row) > 0){
+		if($row){
 			return $row;
 		}else{
-			echo "réserver un voyage pour le voir ici";
+			// echo '<h2 class="text-danger text-center">Réserver un voyage pour le voir ici !!</h2>';
 		}
 
 	}
 
 	public function cancel($id)
 	{
+		session_start();
 		$idUser = $_SESSION['id'];
 		$ctn = new Connection();
-		if(isset($_POST['cancel']))
+		if(isset($_SESSION['id']) && isset($_POST['cancel']))
 		{
-			$str = "DELETE FROM tickets WHERE idUser = $idUser AND idVoyage = $id";
+			$str = "UPDATE `tickets` SET `canceled`='1' WHERE idUser = $idUser AND idVoyage = $id";
 			$query = $ctn->prepare($str);
 			return $query->execute();
+		}else{
+			echo "nnnnnnnnnnnnnnnn";
 		}
 	}
 

@@ -56,9 +56,16 @@ class AdminController
 		$voyage->update($idVoyage);
 		header("Location: http://localhost/trainline/admin");
 	}
+
 	public function delete($idVoyage)
 	{
 		$voyage=Admin::delete($idVoyage);
+		header("Location: http://localhost/trainline/admin");
+	}
+
+	public function undo($idVoyage)
+	{
+		Admin::undo($idVoyage);
 		header("Location: http://localhost/trainline/admin");
 	}
 

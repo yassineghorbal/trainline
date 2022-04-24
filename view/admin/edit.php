@@ -49,7 +49,7 @@
       </div>
     </nav>
 
-	<h1 class="text-center mb-5 border border-secondary p-3">Edit Voyage</h1>
+	<h1 class="text-center mb-5">Edit Voyage</h1>
 
 	<div class="container-lg">
 		<form action="http://localhost/trainline/admin/update/<?=$voyage['id']?>" method="POST">

@@ -61,28 +61,34 @@
         <th scope="col">prix</th>
         <th scope="col">gare de depart</th>
         <th scope="col">gare d'arrivee</th>
-        <th scope="col">id train</th>
+        <th scope="col">places</th>
         <th scope="col">action</th>
     </tr>
-    <?php  
-    foreach ($voyage as $voy) 
-    {
-        echo "<tr>
+
+    <?php  foreach ($voyage as $voy) : ?>
+    <tr>
             
-            <td>".$voy['dateDepart']."</td>
-            <td>".$voy['dateArrivee']."</td>
-            <td>".$voy['prix']."</td>
-            <td>".$voy['depart']."</td>
-            <td>".$voy['arrivee']."</td>
-            <td>".$voy['idTrain']."</td>
+            <td> <?= $voy['dateDepart'] ?></td>
+            <td> <?= $voy['dateArrivee'] ?></td>
+            <td><?= $voy['prix'] ?></td>
+            <td><?= $voy['depart'] ?></td>
+            <td><?= $voy['arrivee'] ?></td>
+            <td><?= $voy['places'] ?></td>
             <td>
 
-            <a href='http://localhost/trainline/admin/edit/".$voy['id']."' class='btn btn-primary'>edit</a>  
-            <a href='http://localhost/trainline/admin/delete/".$voy['id']."' class='btn btn-danger'>delete</a>
-                
-            <td></tr>";
-    }
-    ?>
+            <?php if($voy['canceled'] == 0) : ?>
+                <a href='http://localhost/trainline/admin/edit/<?= $voy['id'] ?>' class='btn btn-primary'>Éditer</a>  
+
+                <a href='http://localhost/trainline/admin/delete/<?= $voy['id']?>' class='btn btn-danger'>Annuler</a>
+            <?php else : ?>
+                <div class="d-flex">
+                <p class="text-danger m-1">Annulé</p>
+                <a href='http://localhost/trainline/admin/undo/<?= $voy['id']?>' class='d-inline btn btn-primary'>Rendre Disponible</a>
+                </div>
+            <?php endif; ?>
+            <td></tr>
+    
+    <?php endforeach ?>
     
     </table>
 

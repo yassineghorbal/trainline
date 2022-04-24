@@ -40,7 +40,7 @@
           <ul class="navbar-nav ms-auto">
             
             <li class="nav-item">
-              <a href="http://localhost/trainline/admin" class="nav-link mx-1">Admin<i class="bi bi-person"></i></a>
+              <a href="http://localhost/trainline/admin" class="nav-link mx-1">Admin <i class="bi bi-person"></i></a>
             </li>
             
           </ul>
@@ -49,7 +49,7 @@
       </div>
     </nav>
 
-	<h1 class="text-center mb-5 border border-secondary p-3">Ajouter un voyage</h1>
+	<h1 class="text-center mb-5">Ajouter un voyage</h1>
     
 
 	<div class="container">
@@ -68,8 +68,8 @@
 				<input type="text" class="form-control" name="depart" required><br>
 				<label class="form-label">gare d'arrivee</label>
 				<input type="text" class="form-control" name="arrivee" required><br>
-				<label class="form-label">train</label>
-				<input type="number" class="form-control" name="idTrain" required><br>
+				<label class="form-label">nombre de places</label>
+				<input type="number" class="form-control" name="places" required><br>
 			</div>
 			</div>
 			<button class="btn btn-success">sauvegarder</button>

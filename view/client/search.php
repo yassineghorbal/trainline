@@ -64,56 +64,19 @@ session_start();
         </div>
     </nav>
 
-    <div class="container mb-5">
-        <!-- <h1 class="text-center mb-5">Voyages Disponibles</h1>
-        <table class="table table-striped table-hover">
-            <tr>
-                <th scope="col">gare de depart</th>
-                <th scope="col">gare d'arrivee</th>
-                <th scope="col">date de depart</th>
-                <th scope="col">date d'arrivee</th>
-                <th scope="col">nombre de places</th>
-                <th scope="col">prix</th>
-            </tr>
-            <?php 
-                $array = array($result);
-            ?>
-            <?php foreach ($array as $row): ?>
-                <?php foreach ($row as $x): ?>
-                    <tr>
-                    <td><?= $x['depart']; ?></td>
-                    <td><?= $x['arrivee']; ?></td>
-                    <td><?= $x['dateDepart']; ?></td>
-                    <td><?= $x['dateArrivee']; ?></td>
-                    <td><?= $x['places']; ?></td>
-                    <td><?= $x['prix']; ?></td>
-                    <td>
-                        <form action='http://localhost/trainline/reservation/view/<?= $x['id'] ?>' method='POST'>
-
-                            <input type='submit' name='view' value='réserver' class='btn btn-success'>
-                            
-                        </form>
-                    <td>
-                    </tr>
-                <?php endforeach; ?>
-            <?php endforeach; ?> 
-
-
-        </table> -->
-
-        <h1 class="text-center mb-5">Voyages Disponibles</h1>
+    <h1 class="text-center mb-5">Voyages Disponibles</h1>
+    <div class="container mb-5 d-flex gap-3">
         <?php 
             $array = array($result);
         ?>
         <?php foreach ($array as $row): ?>
             <?php foreach ($row as $x): ?>
-                <div class="card text-center mb-2 w-50 mx-auto bg-dark">
+                <div class="card text-center mb-2 w-25 mx-auto bg-dark d-inline">
                     <div class="card-body text-light">
-                        <h5 class="card-title">De: <?= ucfirst($x['depart']); ?> À: <?= ucfirst($x['arrivee']); ?></h5>
+                        <h4 class="card-title"><?= ucfirst($x['depart']); ?> <i class="bi bi-arrow-right"></i> <?= ucfirst($x['arrivee']); ?></h4>
                         <h6><?= $x['prix']; ?> DH</h6>
-                        <p class="card-text"><?= $x['dateDepart']; ?> | <?= $x['dateArrivee']; ?></p>
+                        <p class="card-text"><?= $x['dateDepart']; ?> <i class="bi bi-arrow-right"></i> <?= $x['dateArrivee']; ?></p>
                         <br>
-                        <!-- <a href="#" class="btn btn-primary">Réserver</a> -->
                         <form action='http://localhost/trainline/reservation/view/<?= $x['id'] ?>' method='POST'>
 
                         <input type='submit' name='view' value='réserver' class='btn btn-primary'>
@@ -125,7 +88,6 @@ session_start();
                     </div>
                 </div>
             <?php endforeach; ?>
-            
         <?php endforeach; ?> 
     </div>
 
