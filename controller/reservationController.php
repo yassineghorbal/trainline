@@ -70,6 +70,7 @@ class ReservationController
 		if($reservation->cancel($id))
 		{
 			require_once __DIR__ . "/../view/index.php";
+      
 		}else{
 			require_once __DIR__ . "/../view/client/voyages.php";
 		}
