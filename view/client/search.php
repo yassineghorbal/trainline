@@ -75,9 +75,8 @@ session_start();
                     <div class="card-body text-light">
                         <h4 class="card-title"><?= ucfirst($x['depart']); ?> <i class="bi bi-arrow-right"></i> <?= ucfirst($x['arrivee']); ?></h4>
                         <h6><?= $x['prix']; ?> DH</h6>
-                        <p class="card-text"><?= $x['dateDepart']; ?> | <?= $x['dateArrivee']; ?></p>
+                        <p class="card-text"><?= $x['dateDepart']; ?> <i class="bi bi-arrow-right"></i> <?= $x['dateArrivee']; ?></p>
                         <br>
-                        <!-- <a href="#" class="btn btn-primary">Réserver</a> -->
                         <form action='http://localhost/trainline/reservation/view/<?= $x['id'] ?>' method='POST'>
 
                         <input type='submit' name='view' value='réserver' class='btn btn-primary'>
@@ -89,7 +88,6 @@ session_start();
                     </div>
                 </div>
             <?php endforeach; ?>
-            
         <?php endforeach; ?> 
     </div>
 

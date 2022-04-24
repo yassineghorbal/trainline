@@ -16,11 +16,12 @@ class ReservationController
 		$depart = $_POST['depart'];
 		$arrivee = $_POST['arrivee'];
 		$result = $reservation->search($depart, $arrivee);
-		if($result)
+		$resultt = array($result);
+		if($resultt)
 		{
 			require_once __DIR__."/../view/client/search.php";
 		}else{
-			require_once __DIR__."/../view/client/search.php";
+			require_once __DIR__."/../view/index.php";
 		}
 	}
 
@@ -60,18 +61,17 @@ class ReservationController
 
 	public function cancel($id)
 	{
-		session_start();
-		$idUser = $_SESSION['id'];
+		// session_start();
+		// $idUser = $_SESSION['id'];
 
 		$reservation = new Reservation();
 
-		echo $id;
-
-		if($reservation->cancel($id)){
-			header("location: http://localhost/trainline/home");
+		
+		if($reservation->cancel($id))
+		{
+			require_once __DIR__ . "/../view/index.php";
 		}else{
-			// header("location: http://localhost/trainline/reservation/voyages/$idUser");
-			require_once __DIR__."/../view/client/voyages.php";
+			require_once __DIR__ . "/../view/client/voyages.php";
 		}
 
 	}

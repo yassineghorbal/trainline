@@ -72,35 +72,23 @@
         
         <?php if(count($array) > 0) { ?>
             <h1 class="text-center mb-5">Voyages Réservés</h1>
-        <table class="table table-striped table-hover">
-            <tr>
-                <th scope="col">gare de depart</th>
-                <th scope="col">gare d'arrivee</th>
-                <th scope="col">date de depart</th>
-                <th scope="col">date d'arrivee</th>
-                <th scope="col">prix</th>
-            </tr>
-            <tr>
                 <?php foreach ($array as $row): ?>
                     <?php foreach ($row as $x): ?>
-                        <tr>
-                            <td><?= $x['depart']; ?></td>
-                            <td><?= $x['arrivee']; ?></td>
-                            <td><?= $x['dateDepart']; ?></td>
-                            <td><?= $x['dateArrivee']; ?></td>
-                            <td><?= $x['dateArrivee']; ?></td>
-                            <td><?= $x['prix']; ?></td>
-                            <td>
+                        <div class="card text-center mb-2 w-25 mx-auto bg-dark">
+                            <div class="card-body text-light">
+                                <h4 class="card-title"><?= ucfirst($x['depart']); ?> <i class="bi bi-arrow-right"></i> <?= ucfirst($x['arrivee']); ?></h4>
+                                <h6><?= $x['prix']; ?> DH</h6>
+                                <p class="card-text"><?= $x['dateDepart']; ?> <i class="bi bi-arrow-right"></i> <?= $x['dateArrivee']; ?></p>
+                                <br>
                                 <form action='http://localhost/trainline/reservation/cancel/<?= $x['id'] ?>' method='POST'>
-                                    <input type='submit' name='cancel' value='Annuler voyage' class='btn btn-danger'>
-                                </form>
-                            <td>
-                        </tr>
 
+                                <input type='submit' name='cancel' value='Annuler voyage' class='btn btn-danger'>
+
+                                </form>
+                            </div>        
+                        </div>
                     <?php endforeach; ?>
                 <?php endforeach; ?>
-            </tr>
-        </table>
         <?php } ?>
     </div>
 

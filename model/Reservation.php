@@ -26,7 +26,9 @@ class Reservation{
 			// echo "<pre>";
 			return $result;
 		}else{
-			echo '<h1>there are no records !!!!!!!</h1>';
+			// echo '<h1>there are no records !!!!!!!</h1>';
+			header('location: http://localhost/trainline/home');
+			echo '<script type="text/javascript">alert("Stupid message");history.go(-1);</script>';
 		}
 	}
 	
@@ -75,6 +77,7 @@ class Reservation{
 
 	public function cancel($id)
 	{
+		session_start();
 		$idUser = $_SESSION['id'];
 		$ctn = new Connection();
 		if(isset($_SESSION['id']) && isset($_POST['cancel']))
