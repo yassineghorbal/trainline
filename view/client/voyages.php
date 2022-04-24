@@ -79,20 +79,22 @@
                 <?php 
                     $array = array($result);
                 ?>
-                <?php foreach ($array as $x): ?>
-                    <td><?= $x['depart']; ?></td>
-                    <td><?= $x['arrivee']; ?></td>
-                    <td><?= $x['dateDepart']; ?></td>
-                    <td><?= $x['dateArrivee']; ?></td>
-                    <td><?= $x['prix']; ?></td>
-                    <td>
-                        <form action='http://localhost/trainline/reservation/cancel/<?= $x['id'] ?>' method='POST'>
+                <?php foreach ($array as $row): ?>
+                    <?php foreach ($row as $x): ?>
+                        <tr>
+                            <td><?= $x['depart']; ?></td>
+                            <td><?= $x['arrivee']; ?></td>
+                            <td><?= $x['dateDepart']; ?></td>
+                            <td><?= $x['dateArrivee']; ?></td>
+                            <td><?= $x['prix']; ?></td>
+                            <td>
+                                <form action='http://localhost/trainline/reservation/cancel/<?= $x['id'] ?>' method='POST'>
+                                    <input type='submit' name='cancel' value='annuler' class='btn btn-danger'>
+                                </form>
+                            <td>
+                        </tr>
 
-                            <input type='submit' name='cancel' value='annuler' class='btn btn-danger'>
-                            
-                        </form>
-                    <td>
-
+                    <?php endforeach; ?>
                 <?php endforeach; ?>
             </tr>
         </table>
