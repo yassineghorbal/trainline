@@ -73,6 +73,7 @@
                 <th scope="col">gare d'arrivee</th>
                 <th scope="col">date de depart</th>
                 <th scope="col">date d'arrivee</th>
+                <th scope="col">nombre de places</th>
                 <th scope="col">prix</th>
             </tr>
             <tr>
@@ -85,6 +86,7 @@
                             <td><?= $x['depart']; ?></td>
                             <td><?= $x['arrivee']; ?></td>
                             <td><?= $x['dateDepart']; ?></td>
+                            <td><?= $x['dateArrivee']; ?></td>
                             <td><?= $x['dateArrivee']; ?></td>
                             <td><?= $x['prix']; ?></td>
                             <td>
