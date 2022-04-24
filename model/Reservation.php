@@ -26,7 +26,6 @@ class Reservation{
 			// echo "<pre>";
 			return $result;
 		}else{
-			// header('Location: http://localhost/trainline/home');
 			echo '<h1>there are no records !!!!!!!</h1>';
 		}
 	}
