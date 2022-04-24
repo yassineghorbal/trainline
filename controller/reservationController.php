@@ -12,7 +12,6 @@ class ReservationController
 
 	public function search()
 	{
-		// require_once __DIR__."/../view/index.php";
 		$reservation = new Reservation();
 		$depart = $_POST['depart'];
 		$arrivee = $_POST['arrivee'];
@@ -20,7 +19,6 @@ class ReservationController
 		if($result)
 		{
 			require_once __DIR__."/../view/client/search.php";
-			// print_r($result);
 		}else{
 			require_once __DIR__."/../view/client/search.php";
 		}
@@ -72,7 +70,8 @@ class ReservationController
 		if($reservation->cancel($id)){
 			header("location: http://localhost/trainline/home");
 		}else{
-			header("location: http://localhost/trainline/reservation/voyages/$idUser");
+			// header("location: http://localhost/trainline/reservation/voyages/$idUser");
+			require_once __DIR__."/../view/client/voyages.php";
 		}
 
 	}

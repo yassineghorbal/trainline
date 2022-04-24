@@ -65,10 +65,10 @@ class Reservation{
 		$query->execute();
 		$row = $query->fetchAll();
 
-		if(count($row) > 0){
+		if($row){
 			return $row;
 		}else{
-			echo "réserver un voyage pour le voir ici";
+			// echo '<h2 class="text-danger text-center">Réserver un voyage pour le voir ici !!</h2>';
 		}
 
 	}
@@ -77,11 +77,13 @@ class Reservation{
 	{
 		$idUser = $_SESSION['id'];
 		$ctn = new Connection();
-		if(isset($_POST['cancel']))
+		if(isset($_SESSION['id']) && isset($_POST['cancel']))
 		{
-			$str = "DELETE FROM tickets WHERE idUser = $idUser AND idVoyage = $id";
+			$str = "UPDATE `tickets` SET `canceled`='1' WHERE idUser = $idUser AND idVoyage = $id";
 			$query = $ctn->prepare($str);
 			return $query->execute();
+		}else{
+			echo "nnnnnnnnnnnnnnnn";
 		}
 	}
 

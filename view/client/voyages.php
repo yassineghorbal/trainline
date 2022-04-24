@@ -66,43 +66,42 @@
 
 
     <div class="container mb-5">
-        <h1 class="text-center mb-5">Voyages Réservés</h1>
-            <?php 
-                $array = array($result);
-            ?>
-        <?php if(count($array) > 0): ?>
-            <table class="table table-striped table-hover">
-                <tr>
-                    <th scope="col">gare de depart</th>
-                    <th scope="col">gare d'arrivee</th>
-                    <th scope="col">date de depart</th>
-                    <th scope="col">date d'arrivee</th>
-                    <th scope="col">prix</th>
-                </tr>
-                <tr>
-                    <?php foreach ($array as $row): ?>
-                        <?php foreach ($row as $x): ?>
-                            <tr>
-                                <td><?= $x['depart']; ?></td>
-                                <td><?= $x['arrivee']; ?></td>
-                                <td><?= $x['dateDepart']; ?></td>
-                                <td><?= $x['dateArrivee']; ?></td>
-                                <td><?= $x['dateArrivee']; ?></td>
-                                <td><?= $x['prix']; ?></td>
-                                <td>
-                                    <form action='http://localhost/trainline/reservation/cancel/<?= $x['id'] ?>' method='POST'>
-                                        <input type='submit' name='cancel' value='annuler' class='btn btn-danger'>
-                                    </form>
-                                <td>
-                            </tr>
+        <?php 
+            $array = array($result);
+        ?>
+        
+        <?php if(count($array) > 0) { ?>
+            <h1 class="text-center mb-5">Voyages Réservés</h1>
+        <table class="table table-striped table-hover">
+            <tr>
+                <th scope="col">gare de depart</th>
+                <th scope="col">gare d'arrivee</th>
+                <th scope="col">date de depart</th>
+                <th scope="col">date d'arrivee</th>
+                <th scope="col">prix</th>
+            </tr>
+            <tr>
+                <?php foreach ($array as $row): ?>
+                    <?php foreach ($row as $x): ?>
+                        <tr>
+                            <td><?= $x['depart']; ?></td>
+                            <td><?= $x['arrivee']; ?></td>
+                            <td><?= $x['dateDepart']; ?></td>
+                            <td><?= $x['dateArrivee']; ?></td>
+                            <td><?= $x['dateArrivee']; ?></td>
+                            <td><?= $x['prix']; ?></td>
+                            <td>
+                                <form action='http://localhost/trainline/reservation/cancel/<?= $x['id'] ?>' method='POST'>
+                                    <input type='submit' name='cancel' value='Annuler voyage' class='btn btn-danger'>
+                                </form>
+                            <td>
+                        </tr>
 
-                        <?php endforeach; ?>
                     <?php endforeach; ?>
-                </tr>
-            </table>
-        <?php else: ?>
-            <h2 class="color-danger mx-auto">Réserver un voyage pour le voir ici !!</h2>
-        <?php endif; ?>
+                <?php endforeach; ?>
+            </tr>
+        </table>
+        <?php } ?>
     </div>
 
 
