@@ -67,8 +67,8 @@
 					<input type="text" class="form-control" name="depart" value="<?=$voyage['depart']?>"><br>
 					<label class="form-label">gare d'arrivee</label>
 					<input type="text" class="form-control" name="arrivee" value="<?=$voyage['arrivee']?>"><br>
-					<label class="form-label">train</label>
-					<input type="number" class="form-control" name="idTrain" required value="<?=$voyage['idTrain']?>"><br>
+					<label class="form-label">nombre de places</label>
+					<input type="number" class="form-control" name="idTrain" required value="<?=$voyage['places']?>"><br>
 				</div>
 			</div>
 			<button class="btn btn-success">sauvegarder</button>

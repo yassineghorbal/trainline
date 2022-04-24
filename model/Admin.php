@@ -7,7 +7,7 @@ require_once "Connection.php";
 
 class Admin
 {
-	private $table="voyages";
+	private $table="voyages";      
 	private $dateDepart;
 	private $dateArrivee;
 	private $prix;
@@ -16,12 +16,12 @@ class Admin
 	private $places;      
 	function __construct($dateDepart,$dateArrivee,$prix,$depart,$arrivee,$places)
 	{
-		$this->dateDepart;
-		$this->dateArrivee;
-		$this->prix;
-		$this->depart;
-		$this->arrivee;
-		$this->places;
+		$this->dateDepart=$dateDepart;
+		$this->dateArrivee=$dateArrivee;
+		$this->prix=$prix;
+		$this->depart=$depart;
+		$this->arrivee=$arrivee;
+		$this->places=$places;
 	}
 
 
@@ -65,6 +65,6 @@ class Admin
 	public function update($id)
 	{
 		$ctn=new Connection();
-		$ctn->update($this->table,["dateDepart","dateArrivee","prix","depart","arrivee","idTrain"],[$this->dateDepart,$this->dateArrivee,$this->prix,$this->depart,$this->arrivee,$this->idTrain],$id);
+		$ctn->update($this->table,["dateDepart","dateArrivee","prix","depart","arrivee","places"],[$this->dateDepart,$this->dateArrivee,$this->prix,$this->depart,$this->arrivee,$this->places],$id);
 	}
 }
