@@ -38,7 +38,7 @@ session_start();
                     <?php if (isset($_SESSION['id'])) : ?>
 
                         <li class="nav-item">
-                            <a href='#' class='nav-link mx-1'><?= $_SESSION['nom'] ?></a>
+                            <a href='#' class='nav-link mx-1'><?= ucfirst($_SESSION['nom']) ?></a>
                         </li>
                         <li class="nav-item">
                             <a href="http://localhost/trainline/home/voyages/<?= $id ?>" class="nav-link mx-1">Mes voyages</a>

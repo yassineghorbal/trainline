@@ -15,13 +15,19 @@ class Reservation{
 		$query = $ctn->prepare($str);
 
 		$query->execute();
-		$row = $query->fetch(PDO::FETCH_ASSOC);
+		$result = $query->fetchAll(PDO::FETCH_ASSOC);
 
-		if($departSearch == $row['depart'] && $arriveeSearch == $row['arrivee'])
+		// $row = array($result);
+
+		if(count($result) > 0)
 		{
-			return $row;
+			// echo "<pre>";
+			// print_r($result);
+			// echo "<pre>";
+			return $result;
 		}else{
-			header('Location: http://localhost/trainline/home');
+			// header('Location: http://localhost/trainline/home');
+			echo '<h1>there are no records !!!!!!!</h1>';
 		}
 	}
 	
@@ -58,7 +64,7 @@ class Reservation{
 		$query = $ctn->prepare($str);
 
 		$query->execute();
-		$row = $query->fetch(PDO::FETCH_ASSOC);
+		$row = $query->fetchAll();
 
 		if(count($row) > 0){
 			return $row;

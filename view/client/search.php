@@ -39,7 +39,7 @@ session_start();
                     <?php if (isset($_SESSION['id'])) : ?>
                         <?php $id =  $_SESSION['id']; ?>
                         <li class="nav-item">
-                            <a href='http://localhost/trainline/home/profile/<?= $id ?>' class="nav-link mx-1"><?= $_SESSION['nom'] ?></a>
+                            <a href='http://localhost/trainline/home/profile/<?= $id ?>' class="nav-link mx-1"><?= ucfirst($_SESSION['nom']) ?></a>
                         </li>
                         <li class="nav-item">
                             <a href="http://localhost/trainline/reservation/voyages/<?= $id ?>" class="nav-link mx-1">Mes voyages</a>
@@ -74,11 +74,12 @@ session_start();
                 <th scope="col">date d'arrivee</th>
                 <th scope="col">prix</th>
             </tr>
-            <tr>
-                <?php 
-                    $array = array($result);
-                ?>
-                <?php foreach ($array as $x): ?>
+            <?php 
+                $array = array($result);
+            ?>
+            <?php foreach ($array as $row): ?>
+                <?php foreach ($row as $x): ?>
+                    <tr>
                     <td><?= $x['depart']; ?></td>
                     <td><?= $x['arrivee']; ?></td>
                     <td><?= $x['dateDepart']; ?></td>
@@ -91,8 +92,10 @@ session_start();
                             
                         </form>
                     <td>
+                    </tr>
                 <?php endforeach; ?>
-            </tr>
+            
+            <?php endforeach; ?>
         </table>
     </div>
 
