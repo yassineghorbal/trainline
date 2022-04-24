@@ -86,6 +86,7 @@
                             <td><?= $x['arrivee']; ?></td>
                             <td><?= $x['dateDepart']; ?></td>
                             <td><?= $x['dateArrivee']; ?></td>
+                            <td><?= $x['dateArrivee']; ?></td>
                             <td><?= $x['prix']; ?></td>
                             <td>
                                 <form action='http://localhost/trainline/reservation/cancel/<?= $x['id'] ?>' method='POST'>
