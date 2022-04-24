@@ -28,7 +28,7 @@ session_start();
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
         <div class="container">
-            <a href="#" class="navbar-brand h1">Trainline</a>
+            <a href="http://localhost/trainline/home" class="navbar-brand h1">Trainline</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
                 <span class="navbar-toggler-icon"></span>
@@ -85,13 +85,6 @@ session_start();
                             <input type="text" name="arrivee" class="form-control" required>
                         </div>
                     </div>
-                    <!-- <?php
-                    if (isset($_POST['submit'])) {
-                        if (empty($_POST['depart']) && empty($_POST['arrivee'])) {
-                            // echo <p class='pt-3 mb-0 text-danger'>veuillez remplir les deux champs</p>;
-                        }
-                    }
-                    ?> -->
                 </div>
                 <!-- Submit button -->
                 <button type='submit' name='search' class="btn btn-primary btn-block mb-5 w-25 mx-auto">
@@ -99,7 +92,6 @@ session_start();
                 </button>
             </form>
         </div>
-
     </section>
 
     <!-- voyages section : table where all the trips added by the admin show and are filtered by the search of the user-->
