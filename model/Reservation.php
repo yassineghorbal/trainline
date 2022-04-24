@@ -11,7 +11,7 @@ class Reservation{
 	public function search($departSearch, $arriveeSearch)
 	{
 		$ctn = new Connection();
-		$str="SELECT * FROM voyages WHERE depart = '$departSearch' AND arrivee = '$arriveeSearch'";
+		$str="SELECT * FROM voyages WHERE depart = '$departSearch' AND arrivee = '$arriveeSearch' AND canceled = 0 AND dateDepart > CURRENT_TIMESTAMP";
 		$query = $ctn->prepare($str);
 
 		$query->execute();
@@ -28,7 +28,7 @@ class Reservation{
 		}else{
 			// echo '<h1>there are no records !!!!!!!</h1>';
 			header('location: http://localhost/trainline/home');
-			echo '<script type="text/javascript">alert("Stupid message");history.go(-1);</script>';
+			// echo '<script type="text/javascript">alert("Stupid message");history.go(-1);</script>';
 		}
 	}
 	

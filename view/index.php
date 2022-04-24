@@ -84,7 +84,7 @@ session_start();
                             <input type="text" name="arrivee" class="form-control" required>
                         </div>
                     </div>
-                </div>
+                </div>  
                 <!-- Submit button -->
                 <button type='submit' name='search' class="btn btn-primary btn-block mb-5 w-25 mx-auto">
                     Search

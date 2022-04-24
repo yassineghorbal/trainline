@@ -82,7 +82,7 @@
                                 <br>
                                 <form action='http://localhost/trainline/reservation/cancel/<?= $x['id'] ?>' method='POST'>
 
-                                <input type='submit' name='cancel' value='Annuler voyage' class='btn btn-danger'>
+                                <input type='submit' name='cancel' value='Annuler réservation' class='btn btn-danger'>
 
                                 </form>
                             </div>        
