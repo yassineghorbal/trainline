@@ -21,7 +21,7 @@ session_start();
         }
     </style>
 
-    <title>trainline.ma</title>
+    <title>Trainline | Search</title>
 </head>
 
 <body>

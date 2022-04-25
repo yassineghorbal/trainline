@@ -19,7 +19,7 @@
         }
       
     </style>
-	<title>create produit</title>
+	<title>Trainline | Admin | Create</title>
 </head>
 <body>
 

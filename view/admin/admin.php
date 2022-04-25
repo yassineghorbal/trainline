@@ -20,7 +20,7 @@
         }
       
     </style>
-    <title>Admin</title>
+    <title>Trainline | Admin</title>
 </head>
 <body>
 

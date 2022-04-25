@@ -20,7 +20,7 @@ session_start();
         }
     </style>
 
-    <title>trainline.ma</title>
+    <title>Trainline | Home</title>
 </head>
 
 <body>
