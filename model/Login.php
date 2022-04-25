@@ -21,7 +21,7 @@ class Login
 		$query->execute();
 		$row = $query->fetch(PDO::FETCH_ASSOC);
 
-		if ($password_post == $row['password']){
+		if (password_verify($password_post, $row['password'])){
 			session_start();
 			$_SESSION['nom'] = $row['nom'];
 			$_SESSION['id'] = $row['id'];

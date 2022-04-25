@@ -32,24 +32,4 @@ class Signup
 		$ctn=new Connection();
 		return $ctn->selectAll("users");
 	}
-
-	// public static function delete($id)
-	// {
-	// 	$ctn=new Connection();
-	// 	return $ctn->delete("users",$id);
-	// }
-
-
-	// public static function edit($id)
-	// {
-	// 	$ctn=new Connection();
-	// 	return $ctn->selectOne("users",$id);
-	// }
-
-	// public function update($id)
-	// {
-	// 	$ctn=new Connection();
-	// 	$ctn->update($this->table,["nom","prenom","telephone","email","password"],[$this->nom,$this->prenom,$this->telephone,$this->email,$this->password],$id);
-	// }
-
 }
