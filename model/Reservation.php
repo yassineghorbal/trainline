@@ -70,7 +70,7 @@ class Reservation{
 		if($row){
 			return $row;
 		}else{
-			// echo '<h2 class="text-danger text-center">Réserver un voyage pour le voir ici !!</h2>';
+			echo '<h2 class="text-danger text-center">Réserver un voyage pour le voir ici !!</h2>';
 		}
 
 	}

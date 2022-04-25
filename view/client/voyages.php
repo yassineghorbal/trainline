@@ -70,28 +70,31 @@ session_start();
             $array = array($result);
         ?>
         
-        <?php if(count($array) > 0) { ?>
+        <?php foreach ($array as $row): ?>
             <h1 class="text-center mb-5">Voyages Réservés</h1>
-                <?php foreach ($array as $row): ?>
-                    <?php foreach ($row as $x): ?>
-                        <div class="card text-center mb-2 w-25 mx-auto bg-dark">
-                            <div class="card-body text-light">
-                                <h4 class="card-title"><?= ucfirst($x['depart']); ?> <i class="bi bi-arrow-right"></i> <?= ucfirst($x['arrivee']); ?></h4>
-                                <h6><?= $x['prix']; ?> DH</h6>
-                                <p class="card-text"><?= $x['dateDepart']; ?> <i class="bi bi-arrow-right"></i> <?= $x['dateArrivee']; ?></p>
-                                <?php if($x['canceled'] == 0) : ?>
-                                    <a class="btn btn-danger" href="http://localhost/trainline/reservation/cancel/<?= $x['id'] ?>"> Annuler</a>
-                                <?php else : ?>
-                                    <p class="text-danger">Annulé</p>
-                                <?php endif; ?>
-                                </form>
-                            </div>        
-                        </div>
-                    <?php endforeach; ?>
+
+            <!-- <?php  var_dump(count($array))  ?>
+            <?php  var_dump(count($row))  ?> -->
+
+            <?php if($row){ ?>
+                <?php foreach ($row as $x): ?>
+                    <div class="card text-center mb-2 w-25 mx-auto bg-dark">
+                        <div class="card-body text-light">
+                            <h4 class="card-title"><?= ucfirst($x['depart']); ?> <i class="bi bi-arrow-right"></i> <?= ucfirst($x['arrivee']); ?></h4>
+                            <h6><?= $x['prix']; ?> DH</h6>
+                            <p class="card-text"><?= $x['dateDepart']; ?> <i class="bi bi-arrow-right"></i> <?= $x['dateArrivee']; ?></p>
+                            <?php if($x['canceled'] == 0) : ?>
+                                <a class="btn btn-danger" href="http://localhost/trainline/reservation/cancel/<?= $x['id'] ?>"> Annuler</a>
+                            <?php else : ?>
+                                <p class="text-danger">Annulé</p>
+                            <?php endif; ?>
+                            </form>
+                        </div>        
+                    </div>
                 <?php endforeach; ?>
-        <?php } else { ?>
-            <h2 class="text-danger text-center">Réserver un voyage pour le voir ici !!</h2>;
-        <?php } ?>
+            <?php } else {
+            } ?>
+        <?php endforeach; ?>
     </div>
 
 

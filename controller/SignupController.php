@@ -28,7 +28,6 @@ class SignupController
 		$telephone=$_POST['telephone'];
 		$email=$_POST['email'];
 		$password= PASSWORD_HASH($_POST['password'], PASSWORD_DEFAULT);	
-		// $psswd = PASSWORD_HASH($_POST["passd"], PASSWORD_DEFAULT);
 		$user=new Signup($nom,$prenom,$telephone,$email,$password);
 		$user->save();
 		header("Location: http://localhost/trainline/home");
