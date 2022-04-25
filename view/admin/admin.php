@@ -74,8 +74,8 @@
             <td> <?= $voy['dateDepart'] ?></td>
             <td> <?= $voy['dateArrivee'] ?></td>
             <td><?= $voy['prix'] ?></td>
-            <td><?= $voy['depart'] ?></td>
-            <td><?= $voy['arrivee'] ?></td>
+            <td><?= ucfirst($voy['depart']) ?></td>
+            <td><?= ucfirst($voy['arrivee']) ?></td>
             <td><?= $voy['places'] ?></td>
             <td>
 
