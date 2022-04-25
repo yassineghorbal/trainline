@@ -53,7 +53,7 @@
 
 
     <div class="container" style="overflow-x: auto">
-    <table class="table" style="min-width:1000px">
+    <table class="table" style="min-width: 950px">
         <tr>
         <!-- <th scope="col">id</th> -->
         <th scope="col">date de depart</th>

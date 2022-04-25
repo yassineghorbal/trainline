@@ -56,9 +56,9 @@
 			<div class="row">
 				<div class="col-md">
 					<label class="form-label">date de depart</label>
-					<input type="datetime-local" class="form-control" name="dateDepart" value="<?=$voyage['dateDepart']?>"><br>
+					<input type="text" class="form-control" name="dateDepart" value="<?=$voyage['dateDepart']?>"><br>
 					<label class="form-label">date d'arrivee</label>
-					<input type="datetime-local" class="form-control" name="dateArrivee" value="<?=$voyage['dateArrivee']?>"><br>
+					<input type="text" class="form-control" name="dateArrivee" value="<?=$voyage['dateArrivee']?>"><br>
 					<label class="form-label">prix</label>
 					<input type="number" class="form-control" name="prix" value="<?=$voyage['prix']?>"><br>
 				</div>

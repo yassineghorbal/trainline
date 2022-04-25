@@ -89,6 +89,8 @@ session_start();
                         </div>
                     <?php endforeach; ?>
                 <?php endforeach; ?>
+        <?php } else { ?>
+            <h2 class="text-danger text-center">Réserver un voyage pour le voir ici !!</h2>;
         <?php } ?>
     </div>
 
