@@ -19,7 +19,7 @@
         }
       
     </style>
-	<title>edit produit</title>
+    <title>Trainline | Admin | Edit</title>
 </head>
 <body>
 

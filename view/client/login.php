@@ -22,7 +22,7 @@
         }
     </style>
 
-    <title>Se connecter</title>
+    <title>Trainline | Log in</title>
   </head>
   <body>
     <!-- navbar -->

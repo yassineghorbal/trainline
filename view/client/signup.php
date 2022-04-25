@@ -59,7 +59,7 @@
     </nav>
 
 
-  <h1 class="text-center p-3">S'inscrire</h1>
+  <h1 class="text-center p-3">Trainline | Sign up</h1>
     
 
 	<div id="container" class="container w-75 border border-secondary p-3 rounded m-5 mx-auto">

@@ -21,7 +21,7 @@
         }
     </style>
 
-    <title>trainline.ma</title>
+    <title>Trainline | Voyages</title>
 </head>
 
 <body>
