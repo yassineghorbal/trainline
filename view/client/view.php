@@ -91,24 +91,6 @@ session_start();
 		</form>
 	</div>
 
-    <!-- personal info
-    <div class="container-lg">
-    <h3 class="text-center mb-5">Informations Personnelles</h3>
-		<form action="">
-				<div class="col-md w-50 mx-auto">
-					<label class="form-label">nom</label>
-					<input type="text" class="form-control" name="nom" value="<?=$user['nom']?>" readonly><br>
-					<label class="form-label">prenom</label>
-					<input type="text" class="form-control" name="prenom" value="<?=$user['prenom']?>" readonly><br>
-					<label class="form-label">telephone</label>
-					<input type="phone" class="form-control" name="telephone" value="<?=$user['telephone']?>" readonly><br>
-					<label class="form-label">email</label>
-					<input type="email" class="form-control" name="email" value="<?=$user['email']?>" readonly><br>
-                    <?php $id =  $_SESSION['id']; ?>
-				</div>
-		</form>
-	</div> -->
-
 
         <!-- Footer -->
         <footer class="p-5 mt-2 bg-light text-center position-relative">

@@ -30,9 +30,9 @@ class AdminController
 		$prix=$_POST['prix'];
 		$depart=$_POST['depart'];
 		$arrivee=$_POST['arrivee'];
-		$idTain=$_POST['idTrain'];
+		$places=$_POST['places'];
 
-		$voyage=new Admin($dateDepart, $dateArrivee, $prix, $depart, $arrivee,$idTain);
+		$voyage=new Admin($dateDepart, $dateArrivee, $prix, $depart, $arrivee,$places);
 		$voyage->save();
 		header("Location: http://localhost/trainline/admin");
 	}

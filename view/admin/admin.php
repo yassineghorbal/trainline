@@ -56,6 +56,7 @@
     <table class="table" style="min-width: 950px">
         <tr>
         <!-- <th scope="col">id</th> -->
+        <th scope="col">nombre</th>
         <th scope="col">date de depart</th>
         <th scope="col">date d'arrivee</th>
         <th scope="col">prix</th>
@@ -64,15 +65,17 @@
         <th scope="col">places</th>
         <th scope="col">action</th>
     </tr>
+    
+    <?php $i = 1 ?>
 
     <?php  foreach ($voyage as $voy) : ?>
     <tr>
-            
+            <td><?= $i++ ?></td>
             <td> <?= $voy['dateDepart'] ?></td>
             <td> <?= $voy['dateArrivee'] ?></td>
             <td><?= $voy['prix'] ?></td>
-            <td><?= $voy['depart'] ?></td>
-            <td><?= $voy['arrivee'] ?></td>
+            <td><?= ucfirst($voy['depart']) ?></td>
+            <td><?= ucfirst($voy['arrivee']) ?></td>
             <td><?= $voy['places'] ?></td>
             <td>
 

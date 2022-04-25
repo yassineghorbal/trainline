@@ -34,7 +34,17 @@ class Admin
 	public static function select()
 	{
 		$ctn=new Connection();
-		return $ctn->selectAll("voyages");
+		$str = "SELECT * FROM voyages ORDER BY dateDepart";
+		$query = $ctn->prepare($str);
+
+		$query->execute();
+		$row = $query->fetchAll();
+
+		if($row){
+			return $row;
+		}else{
+			echo 'no trips';
+		}
 	}
 
 	public static function delete($id)

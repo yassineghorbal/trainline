@@ -70,22 +70,20 @@ class Reservation{
 		if($row){
 			return $row;
 		}else{
-			// echo '<h2 class="text-danger text-center">Réserver un voyage pour le voir ici !!</h2>';
+			echo '<h2 class="text-danger text-center">Réserver un voyage pour le voir ici !!</h2>';
 		}
 
 	}
 
-	public function cancel($id, $idVoyage, $idUser)
+	public function cancel($idTicket)
 	{
-		session_start();
-		$idUser = $_SESSION['id'];
+		
 		$ctn = new Connection();
-		if(isset($_SESSION['id']))
+		if(isset($_POST['cancel']))
 		{
-			$str = "UPDATE `tickets` SET `canceled`='1' WHERE idUser = $idUser AND idVoyage = $idVoyage AND id = $id";
+			$str = " UPDATE tickets SET canceledticket = 1 WHERE idTicket = $idTicket";
 			$query = $ctn->prepare($str);
 			$query->execute();
-			echo 'hello in';
 		}else{
 			echo "nnn";
 		}

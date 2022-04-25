@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 ?>
 <!doctype html>
 <html lang="en">
@@ -65,33 +65,41 @@ session_start();
     </nav>
 
 
+    <h1 class="text-center mb-5">Voyages Réservés</h1>
     <div class="container mb-5">
         <?php 
             $array = array($result);
         ?>
         
-        <?php if(count($array) > 0) { ?>
-            <h1 class="text-center mb-5">Voyages Réservés</h1>
-                <?php foreach ($array as $row): ?>
-                    <?php foreach ($row as $x): ?>
-                        <div class="card text-center mb-2 w-25 mx-auto bg-dark">
-                            <div class="card-body text-light">
-                                <h4 class="card-title"><?= ucfirst($x['depart']); ?> <i class="bi bi-arrow-right"></i> <?= ucfirst($x['arrivee']); ?></h4>
-                                <h6><?= $x['prix']; ?> DH</h6>
-                                <p class="card-text"><?= $x['dateDepart']; ?> <i class="bi bi-arrow-right"></i> <?= $x['dateArrivee']; ?></p>
-                                <?php if($x['canceled'] == 0) : ?>
-                                    <a class="btn btn-danger" href="http://localhost/trainline/reservation/cancel/<?= $x['id'] ?>"> Annuler</a>
-                                <?php else : ?>
-                                    <p class="text-danger">Annulé</p>
-                                <?php endif; ?>
-                                </form>
-                            </div>        
-                        </div>
-                    <?php endforeach; ?>
+        <?php foreach ($array as $row): ?>
+
+            <!-- <?php  var_dump(count($array))  ?>
+            <?php  var_dump(count($row))  ?> -->
+
+            <?php if($row){ ?>
+                <?php foreach ($row as $ticket): ?>
+                    <div class="card text-center mb-2 mx-auto bg-dark" style="width: 50%;">
+                        <div class="card-body text-light">
+                            
+                            <h4 class="card-title"><?= ucfirst($ticket['depart']); ?> <i class="bi bi-arrow-right"></i> <?= ucfirst($ticket['arrivee']); ?></h4>
+                            <h6><?= $ticket['prix']; ?> DH</h6>
+                            <p class="card-text"><?= $ticket['dateDepart']; ?> <i class="bi bi-arrow-right"></i> <?= $ticket['dateArrivee']; ?></p>
+                            
+                                <?php if($ticket['canceledticket'] == 0) { ?>
+                                    <form action="http://localhost/trainline/reservation/cancel/<?= $ticket['idTicket'] ?>" method="POST">
+                                    <button type="submit" name="cancel" class="btn btn-danger">Annuler</button>
+                                    </form>
+                                <?php } else { ?>
+                                    <p class="text-danger">
+                                        Ticket Annulé 
+                                    </p>
+                                <?php } ?>
+                        </div>        
+                    </div>
                 <?php endforeach; ?>
-        <?php } else { ?>
-            <h2 class="text-danger text-center">Réserver un voyage pour le voir ici !!</h2>;
-        <?php } ?>
+            <?php } else {
+            } ?>
+        <?php endforeach; ?>
     </div>
 
 

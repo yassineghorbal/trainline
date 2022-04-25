@@ -59,20 +59,13 @@ class ReservationController
 		}
 	}
 
-	public function cancel($id, $idVoyage, $idUser)
+	public function cancel($idTicket)
 	{
-		session_start();
-		$idUser = $_SESSION['id'];
-
 		$reservation = new Reservation();
-
 		
-		if($reservation->cancel($id, $idVoyage, $idUser))
-		{
-			require_once __DIR__ . "/../view/index.php";
-		}else{
-			require_once __DIR__ . "/../view/client/voyages.php";
-		}
+			$idUser = $_SESSION['id'];
+			$reservation->cancel($idTicket);
+			header("location: http://localhost/trainline/home");
 
 	}
 }
