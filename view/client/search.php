@@ -65,7 +65,7 @@ session_start();
     </nav>
 
     <h1 class="text-center mb-5">Voyages Disponibles</h1>
-    <div class="container mb-5 " style="display:flex; flex-wrap: wrap;">
+    <div class="container mb-5" style="display:flex; flex-wrap: wrap;  gap: 15px; justify-content: space-around;">
         <?php 
             $array = array($result);
         ?>
