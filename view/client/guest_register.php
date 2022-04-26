@@ -1,5 +1,6 @@
 <?php
-session_start();
+// session_start();
+echo '<h1>this is guest</h1>';
 ?>
 <!doctype html>
 <html lang="en">
@@ -21,7 +22,7 @@ session_start();
         }
     </style>
 
-    <title>Trainline | Profile</title>
+    <title>Trainline | View</title>
 </head>
 
 <body>
@@ -65,28 +66,26 @@ session_start();
     </nav>
 
 
-    <!-- personal info -->
-    
-    <div class="container-lg">
-    <h1 class="text-center mb-5">Informations Personnelles</h1>
-		<form action="">
-				<div class="col-md w-50 mx-auto">
-					<label class="form-label">nom</label>
-					<input type="text" class="form-control" name="nom" value="<?=$user['nom']?>" readonly><br>
-					<label class="form-label">prenom</label>
-					<input type="text" class="form-control" name="prenom" value="<?=$user['prenom']?>" readonly><br>
-					<label class="form-label">telephone</label>
-					<input type="tel" class="form-control" name="telephone" value="<?=$user['telephone']?>" readonly><br>
-					<label class="form-label">email</label>
-					<input type="email" class="form-control" name="email" value="<?=$user['email']?>" readonly><br>
-                    <?php $id =  $_SESSION['id']; ?>
-                    <a href='http://localhost/trainline/home/edit/<?= $id ?>' class='btn btn-primary'>Modifier profile</a>
-				</div>
-			
+    <!-- guest info -->
+    <div id="container" class="container w-25  m-5 mx-auto">
+		<form action="http://localhost/trainline/Signup/save" method="POST">
+			<div class="row">
+        <div class="col-md">
+            <label class="form-label">nom</label>
+            <input type="text" class="form-control" name="nom" required><br>
+            <label class="form-label">prenom</label>
+            <input type="text" class="form-control" name="prenom" required><br>
+            <label class="form-label">telephone</label>
+            <input type="tel" class="form-control" name="telephone" required><br>
+        
+            <label class="form-label">email</label>
+            <input type="email" class="form-control" name="email" required><br>
+        </div>
+			</div>
+			<button name="guest_register" class="btn btn-success mt-2">sauvegarder</button>
+			<a href="http://localhost/trainline/home" class="btn btn-warning mt-2">annuler</a>
 		</form>
 	</div>
-
-
 
 
 

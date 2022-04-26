@@ -12,6 +12,7 @@ class ReservationController
 
 	public function search()
 	{
+		// session_start();
 		$reservation = new Reservation();
 		$depart = $_POST['depart'];
 		$arrivee = $_POST['arrivee'];
@@ -28,9 +29,15 @@ class ReservationController
 	public function view($id)
 	{
 		$reservation = new Reservation();
-		
-		$voyage = $reservation->view($id);
-		require_once __DIR__."/../view/client/view.php";
+		session_start();
+		if(isset($_SESSION['id']))
+		{
+			$voyage = $reservation->view($id);
+			require_once __DIR__."/../view/client/view.php";
+		}else{
+			$voyage = $reservation->view($id);
+			require_once __DIR__."/../view/client/guest_view.php";
+		}
 	}
 
 	public function book($id)

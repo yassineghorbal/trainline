@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 ?>
 <!doctype html>
 <html lang="en">
@@ -68,7 +68,7 @@ session_start();
 
     <h3 class="text-center mb-3 p-3">Informations de voyage selectionné</h3>
 
-	<div class="container">
+	<div class="container w-75">
 		<form action="http://localhost/trainline/reservation/book/<?= $voyage['id'] ?>" method="POST">
 			<div class="row">
 				<div class="col-md">
@@ -84,39 +84,14 @@ session_start();
 					<input type="text" class="form-control" name="depart" value="<?=$voyage['depart']?>" readonly><br>
 					<label class="form-label">gare d'arrivee</label>
 					<input type="text" class="form-control" name="arrivee" value="<?=$voyage['arrivee']?>" readonly><br>
+					<label class="form-label">nombre de places restantes</label>
+					<input type="text" class="form-control" name="places" value="<?=$voyage['places']?>" readonly><br>
 				</div>
 			</div>
             <button name="book" type="submit" class="btn btn-success">Réserver</button>
             <a href="http://localhost/trainline/home" class="btn btn-warning m-2">annuler</a>
 		</form>
 	</div>
-
-
-        <!-- Footer -->
-        <footer class="p-5 mt-2 bg-light text-center position-relative">
-            <div class="container">
-
-
-
-                <p class="lead">Copyright &copy; 2021 trainline.ma</p>
-                <div class="p-1">
-                    <a href="#" class="text-decoration-none">
-                        <i class="bi bi-facebook h3 m-1"></i>
-                    </a>
-                    <a href="#" class="text-decoration-none">
-                        <i class="bi bi-instagram h3 m-1"></i>
-                    </a>
-                    <a href="#" class="text-decoration-none">
-                        <i class="bi bi-twitter h3 m-1"></i>
-                    </a>
-
-                </div>
-
-                <a href="#" class="position-absolute bottom-0 end-0 p-5">
-                    <i class="bi bi-arrow-up-circle h1"></i>
-                </a>
-            </div>
-        </footer>
 
 
 

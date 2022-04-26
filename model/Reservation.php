@@ -50,6 +50,15 @@ class Reservation{
 		}
 	}
 
+	public function guest_book()
+	{
+		$ctn = new Connection();
+		if(isset($_POST['guest_book'])){
+			$str = "INSERT INTO users (nom, prenom, telephone, email)
+				OUTPUT inserted";
+		}
+	}
+
 	public function voyages($idUser)
 	{
 		$idUser = $_SESSION['id'];
@@ -61,7 +70,8 @@ class Reservation{
 		ON tickets.idVoyage = voyages.id
 		INNER JOIN users
 		ON tickets.idUser = users.id
-		WHERE users.id = $idUser";
+		WHERE users.id = $idUser 
+		ORDER BY dateDepart";
 		$query = $ctn->prepare($str);
 
 		$query->execute();

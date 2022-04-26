@@ -65,13 +65,13 @@ session_start();
     </nav>
 
     <h1 class="text-center mb-5">Voyages Disponibles</h1>
-    <div class="container mb-5" style="display:flex; flex-wrap: wrap;  gap: 15px; justify-content: space-around;">
+    <div class="container mb-5">
         <?php 
             $array = array($result);
         ?>
         <?php foreach ($array as $row): ?>
             <?php foreach ($row as $x): ?>
-                <div class="card text-center mb-2 w-25 mx-auto bg-dark">
+                <div class="card text-center mb-2 mx-auto bg-dark" style="width: 50%">
                     <div class="card-body text-light">
                         <h4 class="card-title"><?= ucfirst($x['depart']); ?> <i class="bi bi-arrow-right"></i> <?= ucfirst($x['arrivee']); ?></h4>
                         <h6><?= $x['prix']; ?> DH</h6>
