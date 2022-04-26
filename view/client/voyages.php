@@ -69,8 +69,8 @@
     <div class="container mb-5">
         <?php 
             $array = array($result);
-            echo '<pre>';
-            print_r($array);
+            // echo '<pre>';
+            // print_r($array);
         ?>
         
         <?php foreach ($array as $row): ?>
@@ -98,7 +98,7 @@
                                     </p>
                                 <?php } elseif($ticket['canceledticket'] == 1 && $time < 3600) { ?>
                                     <p class="text-danger">
-                                        Voyage est Annulé et Passé
+                                        Ticket est Annulé<br>Voyage est Passé
                                     </p>
                                 <?php } else { ?>
                                     <p class="text-danger">
