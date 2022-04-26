@@ -62,8 +62,6 @@ class ReservationController
 	public function cancel($idTicket)
 	{
 		$reservation = new Reservation();
-		
-			$idUser = $_SESSION['id'];
 			$reservation->cancel($idTicket);
 			header("location: http://localhost/trainline/home");
 

@@ -68,5 +68,4 @@ class AdminController
 		Admin::undo($idVoyage);
 		header("Location: http://localhost/trainline/admin");
 	}
-
 }

@@ -21,7 +21,7 @@
         }
     </style>
 
-    <title>Trainline | Voyages</title>
+    <title>Trainline | Tickets</title>
 </head>
 
 <body>
@@ -69,14 +69,13 @@
     <div class="container mb-5">
         <?php 
             $array = array($result);
+            // echo '<pre>';
+            // print_r($array);
+            // echo '<pre>';
         ?>
         
         <?php foreach ($array as $row): ?>
-
-            <!-- <?php  var_dump(count($array))  ?>
-            <?php  var_dump(count($row))  ?> -->
-
-            <?php if($row){ ?>
+            <!-- <?php if(count($row) > 0){ ?> -->
                 <?php foreach ($row as $ticket): ?>
                     <div class="card text-center mb-2 mx-auto bg-dark" style="width: 50%;">
                         <div class="card-body text-light">
@@ -97,14 +96,14 @@
                         </div>        
                     </div>
                 <?php endforeach; ?>
-            <?php } else {
-            } ?>
+            <!-- <?php } ?> -->
         <?php endforeach; ?>
     </div>
 
 
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 
 
 </body>
