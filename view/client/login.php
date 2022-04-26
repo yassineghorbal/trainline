@@ -56,26 +56,19 @@
     
 
 
-	<div class="container w-75 border border-secondary m-5 mx-auto  p-3 rounded">
+	<div class="container w-25 m-5 mx-auto">
   <!-- to make it check db for user before login -->
 		<form action="http://localhost/trainline/login" method="POST">
 		
         <div class="row mb-3">
-          <div class="col-md">
             <label class="form-label">email</label>
             <input type="email" class="form-control mb-2" name="email" required>
-          </div>
-          <div class="col">
             <label class="form-label">password</label>
             <input type="password" class="form-control" name="password" required>
           </div>
-        </div>
-			
-			<button class="btn btn-success" name="login">se connecter</button>
-			<a href="http://localhost/trainline/home" class="btn btn-warning">annuler</a>
-
-      
-		</form> 
+          <button class="btn btn-success" name="login">se connecter</button>
+          <a href="http://localhost/trainline/home" class="btn btn-warning">annuler</a>
+        </form> 
 	</div>
     
 

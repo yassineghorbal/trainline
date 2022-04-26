@@ -87,32 +87,6 @@ session_start();
 	</div>
 
 
-        <!-- Footer -->
-        <footer class="p-5 mt-2 bg-light text-center position-relative">
-            <div class="container">
-
-
-
-                <p class="lead">Copyright &copy; 2021 trainline.ma</p>
-                <div class="p-1">
-                    <a href="#" class="text-decoration-none">
-                        <i class="bi bi-facebook h3 m-1"></i>
-                    </a>
-                    <a href="#" class="text-decoration-none">
-                        <i class="bi bi-instagram h3 m-1"></i>
-                    </a>
-                    <a href="#" class="text-decoration-none">
-                        <i class="bi bi-twitter h3 m-1"></i>
-                    </a>
-
-                </div>
-
-                <a href="#" class="position-absolute bottom-0 end-0 p-5">
-                    <i class="bi bi-arrow-up-circle h1"></i>
-                </a>
-            </div>
-        </footer>
-
 
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

@@ -62,7 +62,7 @@
   <h1 class="text-center p-3">Trainline | Sign up</h1>
     
 
-	<div id="container" class="container w-75 border border-secondary p-3 rounded m-5 mx-auto">
+	<div id="container" class="container w-50 p-3 m-5 mx-auto">
 		<form action="http://localhost/trainline/Signup/save" method="POST">
 			<div class="row">
         <div class="col-md">
