@@ -70,7 +70,7 @@ class Reservation{
 		ON tickets.idVoyage = voyages.id
 		INNER JOIN users
 		ON tickets.idUser = users.id
-		WHERE users.id = $idUser 
+		WHERE users.id = $idUser and voyages.canceled = '0'
 		ORDER BY dateDepart";
 		$query = $ctn->prepare($str);
 
