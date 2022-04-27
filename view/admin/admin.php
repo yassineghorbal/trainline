@@ -56,7 +56,7 @@
     <table class="table" style="min-width: 950px">
         <tr>
         <!-- <th scope="col">id</th> -->
-        <th scope="col">nombre</th>
+        <th scope="col"></th>
         <th scope="col">date de depart</th>
         <th scope="col">date d'arrivee</th>
         <th scope="col">prix</th>
@@ -70,7 +70,7 @@
 
     <?php  foreach ($voyage as $voy) : ?>
     <tr>
-            <td><?= $i++ ?></td>
+            <td><?= $i++ .'<i class="bi bi-arrow-right"></i>' ?></td>
             <td> <?= $voy['dateDepart'] ?></td>
             <td> <?= $voy['dateArrivee'] ?></td>
             <td><?= $voy['prix'] ?></td>

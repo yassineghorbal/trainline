@@ -42,7 +42,7 @@
                             <a href='http://localhost/trainline/home/profile/<?= $idUser ?>' class="nav-link mx-1"><?= ucfirst($_SESSION['nom']) ?></a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link mx-1">Mes voyages</a>
+                            <a href="http://localhost/trainline/reservation/voyages/<?= $idUser ?>" class="nav-link mx-1">Mes voyages</a>
                         </li>
                         <li class="nav-item">
                             <a href="http://localhost/trainline/login/logout" class="nav-link mx-1">Se deconnecter</a>
@@ -69,24 +69,23 @@
     <div class="container mb-5">
         <?php 
             $array = array($result);
-            echo '<pre>';
-            print_r($array);
+            // echo '<pre>';
+            // print_r($array);
         ?>
         
         <?php foreach ($array as $row): ?>
-            <!-- <?php if(count($row) > 0){ ?> -->
                 <?php foreach ($row as $ticket): ?>
                     <div class="card text-center mb-3 mx-auto bg-dark" style="width: 50%;">
                         <div class="card-body text-light">
                             <?php 
                             date_default_timezone_set('Africa/Casablanca');
-                            $date = date('m/d/Y h:i:s', time());
-                            $time = strtotime($ticket['dateDepart'])  - strtotime($date) + 3600;
+                            $date = date('Y-m-d H:i:s', time());
+                            $time = strtotime($ticket['dateDepart'])  - strtotime($date);
                             
-                            // echo $date;?>
+                            echo $date;?>
                             <h4 class="card-title"><?= ucfirst($ticket['depart']); ?> <i class="bi bi-arrow-right"></i> <?= ucfirst($ticket['arrivee']); ?></h4>
                             <h6><?= $ticket['prix']; ?> DH</h6>
-                            <p class="card-text"><?= $ticket['dateDepart']; ?> <i class="bi bi-arrow-right"></i> <?= $ticket['dateArrivee']; ?></p>
+                            <p class="card-text"><?= date("D, d M Y H:i", strtotime($ticket['dateDepart'])); ?> <i class="bi bi-arrow-right"></i> <?= date("D, d M Y H:i", strtotime($ticket['dateArrivee'])); ?></p>
                             
                                 <?php if($ticket['canceledticket'] == 0 && $time > 3600) { ?>
                                     <form action="http://localhost/trainline/reservation/cancel/<?= $ticket['idTicket'] ?>" method="POST">
@@ -96,9 +95,10 @@
                                     <p class="text-danger">
                                         Voyage est Passé
                                     </p>
+                                
                                 <?php } elseif($ticket['canceledticket'] == 1 && $time < 3600) { ?>
                                     <p class="text-danger">
-                                        Voyage est Annulé et Passé
+                                        Ticket est Annulé<br>Voyage est Passé
                                     </p>
                                 <?php } else { ?>
                                     <p class="text-danger">
@@ -108,7 +108,7 @@
                         </div>        
                     </div>
                 <?php endforeach; ?>
-            <!-- <?php } ?> -->
+            
         <?php endforeach; ?>
     </div>
 

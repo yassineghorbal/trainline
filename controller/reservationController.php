@@ -12,17 +12,19 @@ class ReservationController
 
 	public function search()
 	{
-		// session_start();
+		session_start();
 		$reservation = new Reservation();
 		$depart = $_POST['depart'];
 		$arrivee = $_POST['arrivee'];
 		$result = $reservation->search($depart, $arrivee);
 		$resultt = array($result);
-		if($resultt)
+		// print_r($result);
+		if(count($resultt) == 0)
 		{
-			require_once __DIR__."/../view/client/search.php";
-		}else{
+			$_SESSION['not_found'] = true;
 			require_once __DIR__."/../view/index.php";
+		}else{
+			require_once __DIR__."/../view/client/search.php";
 		}
 	}
 
@@ -69,8 +71,30 @@ class ReservationController
 	public function cancel($idTicket)
 	{
 		$reservation = new Reservation();
-			$reservation->cancel($idTicket);
-			header("location: http://localhost/trainline/home");
-
+		$reservation->cancel($idTicket);
+		header("location: http://localhost/trainline/home");
 	}
+
+	// public function guest_view()
+	// { 
+	// 	$reservation = new Reservation();
+
+	// 	if(isset($_POST['view']))
+	// 	$reservation->guest_view();
+
+	// 	require_once __DIR__.'../view/client/guest_book.php';
+	// }
+
+	// public function guest_book($id)
+	// { 
+		
+	// 	$reservation = new Reservation();
+
+		
+	// 	// $idUser = $result['id'];
+		
+	// 	$reservation->guest_book($id);
+
+	// 	header("location: http://localhost/trainline/home");
+	// }
 }

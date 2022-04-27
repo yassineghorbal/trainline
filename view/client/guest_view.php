@@ -67,17 +67,17 @@ echo '<h1>this is guest</h1>';
 
     <!-- guest info -->
     <div id="container" class="container w-50  m-5 mx-auto">
-        <form action="http://localhost/trainline/reservation/book/<?= $voyage['id'] ?>" method="POST">
+        <form action="http://localhost/trainline/reservation/guest_book/<?= $voyage['id'] ?>" method="POST">
             <div class="col-md">
                 <label class="form-label">nom</label>
-                <input type="text" class="form-control" name="nom" required><br>
+                <input type="text" class="form-control" name="guest_nom" required><br>
                 <label class="form-label">prenom</label>
-                <input type="text" class="form-control" name="prenom" required><br>
+                <input type="text" class="form-control" name="guest_prenom" required><br>
                 <label class="form-label">telephone</label>
-                <input type="tel" class="form-control" name="telephone" required><br>
+                <input type="tel" class="form-control" name="guest_telephone" required><br>
             
                 <label class="form-label">email</label>
-                <input type="email" class="form-control mb-5" name="email" required><br>
+                <input type="email" class="form-control mb-5" name="guest_email" required><br>
             </div>
 
             <div class="row">
@@ -99,7 +99,7 @@ echo '<h1>this is guest</h1>';
             </div>
             </div>
 
-            <button name="guest_book" type="submit" class="btn btn-success">Réserver</button>
+            <button name="guest_view" type="submit" class="btn btn-success">Réserver</button>
             <a href="http://localhost/trainline/home" class="btn btn-warning m-2">annuler</a>
         </form>
 	</div>

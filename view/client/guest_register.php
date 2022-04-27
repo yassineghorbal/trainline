@@ -72,14 +72,14 @@ echo '<h1>this is guest</h1>';
 			<div class="row">
         <div class="col-md">
             <label class="form-label">nom</label>
-            <input type="text" class="form-control" name="nom" required><br>
+            <input type="text" class="form-control" name="guest_nom" required><br>
             <label class="form-label">prenom</label>
-            <input type="text" class="form-control" name="prenom" required><br>
+            <input type="text" class="form-control" name="guest_prenom" required><br>
             <label class="form-label">telephone</label>
-            <input type="tel" class="form-control" name="telephone" required><br>
+            <input type="tel" class="form-control" name="guest_telephone" required><br>
         
             <label class="form-label">email</label>
-            <input type="email" class="form-control" name="email" required><br>
+            <input type="email" class="form-control" name="guest_email" required><br>
         </div>
 			</div>
 			<button name="guest_register" class="btn btn-success mt-2">sauvegarder</button>
