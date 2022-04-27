@@ -70,12 +70,7 @@ session_start();
 
         <div class="container">
             <h1 class="text-center mt-5">Trouver un voyage</h1>
-            <?php if(isset($_SESSION['not_found'])) {?>
-            
-                <div>
-                    <h4>Voyage n'est Pas Disponible Pour Le Moment</h4>
-                </div>
-            <?php } ?>
+
             <form class='p-5 text-light d-flex justify-content-center flex-column' action='http://localhost/trainline/reservation/search' method='POST'>
                 <div class="row mb-5">
                     <div class="col-md">

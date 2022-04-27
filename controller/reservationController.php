@@ -12,16 +12,18 @@ class ReservationController
 
 	public function search()
 	{
-		session_start();
+		unset($_SESSION['not_found']);
 		$reservation = new Reservation();
 		$depart = $_POST['depart'];
 		$arrivee = $_POST['arrivee'];
 		$result = $reservation->search($depart, $arrivee);
-		$resultt = array($result);
 		// print_r($result);
-		if(count($resultt) == 0)
+		if(count($result) == 0)
 		{
 			$_SESSION['not_found'] = true;
+			echo "<center class='alert alert-danger' role='alert'><div>
+					<h4>Voyage n'est Pas Disponible Pour Le Moment</h4>
+				  </div></center>";
 			require_once __DIR__."/../view/index.php";
 		}else{
 			require_once __DIR__."/../view/client/search.php";
