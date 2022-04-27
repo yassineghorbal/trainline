@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 ?>
 <!doctype html>
 <html lang="en">
@@ -66,17 +66,18 @@ session_start();
 
     <h1 class="text-center mb-5">Voyages Disponibles</h1>
     <div class="container mb-5">
-        <?php 
+    <?php 
             $array = array($result);
         ?>
         <?php foreach ($array as $row): ?>
             <?php foreach ($row as $x): ?>
-                <div class="card text-center mb-2 mx-auto bg-dark" style="width: 50%">
+                <div class="card text-center mb-2 w-50 mx-auto bg-dark">
                     <div class="card-body text-light">
-                        <h4 class="card-title"><?= ucfirst($x['depart']); ?> <i class="bi bi-arrow-right"></i> <?= ucfirst($x['arrivee']); ?></h4>
+                        <h5 class="card-title">De: <?= ucfirst($x['depart']); ?> À: <?= ucfirst($x['arrivee']); ?></h5>
                         <h6><?= $x['prix']; ?> DH</h6>
-                        <p class="card-text"><?= $x['dateDepart']; ?> <i class="bi bi-arrow-right"></i> <?= $x['dateArrivee']; ?></p>
+                        <p class="card-text"><?= $x['dateDepart']; ?> | <?= $x['dateArrivee']; ?></p>
                         <br>
+                        <!-- <a href="#" class="btn btn-primary">Réserver</a> -->
                         <form action='http://localhost/trainline/reservation/view/<?= $x['id'] ?>' method='POST'>
 
                         <input type='submit' name='view' value='réserver' class='btn btn-primary'>
@@ -87,8 +88,9 @@ session_start();
                         Places Restantes: <?= $x['places']; ?>
                     </div>
                 </div>
-            <?php endforeach; ?>
-        <?php endforeach; ?> 
+                <?php endforeach; ?>
+                
+        <?php endforeach; ?>
     </div>
 
 

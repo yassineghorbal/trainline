@@ -65,27 +65,45 @@ echo '<h1>this is guest</h1>';
         </div>
     </nav>
 
-
     <!-- guest info -->
-    <div id="container" class="container w-25  m-5 mx-auto">
-		<form action="http://localhost/trainline/Signup/save" method="POST">
-			<div class="row">
-        <div class="col-md">
-            <label class="form-label">nom</label>
-            <input type="text" class="form-control" name="guest_nom" required><br>
-            <label class="form-label">prenom</label>
-            <input type="text" class="form-control" name="guest_prenom" required><br>
-            <label class="form-label">telephone</label>
-            <input type="tel" class="form-control" name="guest_telephone" required><br>
-        
-            <label class="form-label">email</label>
-            <input type="email" class="form-control" name="guest_email" required><br>
-        </div>
-			</div>
-			<button name="guest_register" class="btn btn-success mt-2">sauvegarder</button>
-			<a href="http://localhost/trainline/home" class="btn btn-warning mt-2">annuler</a>
-		</form>
+    <div id="container" class="container w-50  m-5 mx-auto">
+        <form action="http://localhost/trainline/reservation/guest_book/<?= $result['id'] ?>" method="POST">
+            <div class="col-md">
+                <label class="form-label">nom</label>
+                <input type="text" class="form-control" value="<?= $result['nom']; ?>" readonly><br>
+                <label class="form-label">prenom</label>
+                <input type="text" class="form-control" value="<?= $result ['prenom'] ?>" readonly><br>
+                <label class="form-label">telephone</label>
+                <input type="tel" class="form-control" value="<?= $result['telephone'] ?>" readonly><br>
+            
+                <label class="form-label">email</label>
+                <input type="email" class="form-control mb-5" value="<?= $result['email']; ?>" readonly><br>
+            </div>
+
+            <div class="row">
+            <div class="col-md">
+                <label class="form-label">date de depart</label>
+                <input type="text" class="form-control" name="dateDepart" value="<?=$voyage['dateDepart']?>" readonly><br>
+                <label class="form-label">date d'arrivee</label>
+                <input type="text" class="form-control" name="dateArrivee" value="<?=$voyage['dateArrivee']?>" readonly><br>
+                <label class="form-label">prix</label>
+                <input type="number" class="form-control" name="prix" value="<?=$voyage['prix']?>" readonly><br>
+            </div>
+            <div class="col-md">
+                <label class="form-label">gare de depart</label>
+                <input type="text" class="form-control" name="depart" value="<?=$voyage['depart']?>" readonly><br>
+                <label class="form-label">gare d'arrivee</label>
+                <input type="text" class="form-control" name="arrivee" value="<?=$voyage['arrivee']?>" readonly><br>
+                <label class="form-label">nombre de places restantes</label>
+                <input type="text" class="form-control" name="places" value="<?=$voyage['places']?>" readonly><br>
+            </div>
+            </div>
+
+            <button name="guest_book" type="submit" class="btn btn-success">Réserver</button>
+            <a href="http://localhost/trainline/home" class="btn btn-warning m-2">annuler</a>
+        </form>
 	</div>
+
 
 
 
