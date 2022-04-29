@@ -73,11 +73,10 @@
             <?php foreach ($row as $x): ?>
                 <div class="card text-center mb-2 w-50 mx-auto bg-dark">
                     <div class="card-body text-light">
-                        <h5 class="card-title">De: <?= ucfirst($x['depart']); ?> À: <?= ucfirst($x['arrivee']); ?></h5>
+                        <h5 class="card-title"><?= ucfirst($x['depart']); ?> <i class="bi bi-arrow-right"></i> <?= ucfirst($x['arrivee']); ?></h5>
                         <h6><?= $x['prix']; ?> DH</h6>
-                        <p class="card-text"><?= $x['dateDepart']; ?> | <?= $x['dateArrivee']; ?></p>
+                        <p class="card-text"><?= date("D, d M Y H:i", strtotime($x['dateDepart'])); ?> <i class="bi bi-arrow-right"></i> <?= date("D, d M Y H:i", strtotime($x['dateArrivee'])); ?></p>
                         <br>
-                        <!-- <a href="#" class="btn btn-primary">Réserver</a> -->
                         <form action='http://localhost/trainline/reservation/view/<?= $x['id'] ?>' method='POST'>
 
                         <input type='submit' name='view' value='réserver' class='btn btn-primary'>

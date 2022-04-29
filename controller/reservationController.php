@@ -23,9 +23,10 @@ class ReservationController
 			$_SESSION['not_found'] = true;
 			echo "<center class='alert alert-danger' role='alert'><div>
 					<h4>Voyage n'est Pas Disponible Pour Le Moment</h4>
-				  </div></center>";
+				    </div></center>";
 			require_once __DIR__."/../view/index.php";
 		}else{
+			session_start();
 			require_once __DIR__."/../view/client/search.php";
 		}
 	}
@@ -72,9 +73,15 @@ class ReservationController
 
 	public function cancel($idTicket)
 	{
+		unset($_SESSION['canceled']);
 		$reservation = new Reservation();
+
 		$reservation->cancel($idTicket);
-		header("location: http://localhost/trainline/home");
+		$_SESSION['canceled'] = true;
+		echo "<center class='alert alert-danger' role='alert'><div>
+		<h4>Voyage est Annulé</h4>
+		</div></center>";
+		require_once __DIR__."/../view/index.php";
 	}
 
 	// public function guest_view()

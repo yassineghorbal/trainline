@@ -81,8 +81,7 @@
                             date_default_timezone_set('Africa/Casablanca');
                             $date = date('Y-m-d H:i:s', time());
                             $time = strtotime($ticket['dateDepart'])  - strtotime($date);
-                            
-                            echo $date;?>
+                            ?>
                             <h4 class="card-title"><?= ucfirst($ticket['depart']); ?> <i class="bi bi-arrow-right"></i> <?= ucfirst($ticket['arrivee']); ?></h4>
                             <h6><?= $ticket['prix']; ?> DH</h6>
                             <p class="card-text"><?= date("D, d M Y H:i", strtotime($ticket['dateDepart'])); ?> <i class="bi bi-arrow-right"></i> <?= date("D, d M Y H:i", strtotime($ticket['dateArrivee'])); ?></p>
