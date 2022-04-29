@@ -4,7 +4,6 @@ require_once "Connection.php";
 
 class Reservation{
 	private $table="tickets";
-	private $table2="users";
 	function __construct()
 	{
 	}
@@ -12,7 +11,7 @@ class Reservation{
 	public function search($departSearch, $arriveeSearch)
 	{
 		$ctn = new Connection();
-		$str= "SELECT * FROM voyages WHERE depart = '$departSearch' AND arrivee = '$arriveeSearch' AND canceled = 0 AND dateDepart > CURRENT_TIMESTAMP ORDER BY dateDepart";
+		$str= "SELECT * FROM voyages WHERE depart = '$departSearch' AND arrivee = '$arriveeSearch' AND canceled = 0 AND places > 0 AND dateDepart > CURRENT_TIMESTAMP ORDER BY dateDepart";
 		
 		$query = $ctn->prepare($str);
 
@@ -36,6 +35,10 @@ class Reservation{
 		if(isset($_SESSION['id']) && isset($_POST['book']))
 		{
 			$ctn->insert($this->table, ["idUser", "idVoyage"], [$idUser, $id]);
+
+			$str = "UPDATE voyages SET places = (places-1) WHERE id = $id";
+			$query = $ctn->prepare($str);
+			$query->execute();
 		}
 	}
 
@@ -46,7 +49,7 @@ class Reservation{
 
 		$ctn = new Connection();
 		
-		$str = "SELECT * FROM tickets 
+		$str = "SELECT * FROM tickets
 		INNER JOIN voyages
 		ON tickets.idVoyage = voyages.id
 		INNER JOIN users
@@ -61,7 +64,7 @@ class Reservation{
 		if($row){
 			return $row;
 		}else{
-			// echo '<h2 class="text-danger text-center">Réserver un voyage pour le voir ici !!</h2>';
+			return false;
 		}
 
 	}
@@ -80,44 +83,44 @@ class Reservation{
 		}
 	}
 
-	public function guest_view()
-	{
-		$ctn = new Connection();
-		if(isset($_POST['guest_view'])){
+	// public function guest_view()
+	// {
+	// 	$ctn = new Connection();
+	// 	if(isset($_POST['guest_view'])){
 			
-			$nom=$_POST['guest_nom'];
-			$prenom=$_POST['guest_prenom'];
-			$telephone=$_POST['guest_telephone'];
-			$email=$_POST['guest_email'];
-			$str = "INSERT INTO users (nom, prenom, telephone, email, password) VALUES ('$nom', '$prenom', '$telephone', '$email', 'nopassword')";
+	// 		$nom=$_POST['guest_nom'];
+	// 		$prenom=$_POST['guest_prenom'];
+	// 		$telephone=$_POST['guest_telephone'];
+	// 		$email=$_POST['guest_email'];
+	// 		$str = "INSERT INTO users (nom, prenom, telephone, email, password) VALUES ('$nom', '$prenom', '$telephone', '$email', 'nopassword')";
 
-			$query = $ctn->prepare($str);
-			$query->execute();
-			echo "executed1";
-		}
-	}
+	// 		$query = $ctn->prepare($str);
+	// 		$query->execute();
+	// 		echo "executed1";
+	// 	}
+	// }
 
-	public function guest_book($id)
-	{
-		$ctn = new Connection();
-		if(isset($_POST['guest_book'])){
+	// public function guest_book($id)
+	// {
+	// 	$ctn = new Connection();
+	// 	if(isset($_POST['guest_book'])){
 
-			$email=$_POST['guest_email'];
+	// 		$email=$_POST['guest_email'];
 			
-			$str = "SELECT * FROM `users` WHERE email = $email";
+	// 		$str = "SELECT * FROM `users` WHERE email = $email";
 			
-			$query = $ctn->prepare($str);
-			$query->execute();
-			echo "executed2";
+	// 		$query = $ctn->prepare($str);
+	// 		$query->execute();
+	// 		echo "executed2";
 			
-			$row = $query->fetch(PDO::FETCH_ASSOC);
-			$result = array($row);
-			return $result;
+	// 		$row = $query->fetch(PDO::FETCH_ASSOC);
+	// 		$result = array($row);
+	// 		return $result;
 
-			echo $row['id'];
+	// 		echo $row['id'];
 			
-			$ctn->insert($this->table, ["idUser", "idVoyage"], [$result['id'], $id]);
-			echo "executed3";
-		}
-	}
+	// 		$ctn->insert($this->table, ["idUser", "idVoyage"], [$result['id'], $id]);
+	// 		echo "executed3";
+	// 	}
+	// }
 }

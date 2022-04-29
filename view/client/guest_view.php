@@ -67,7 +67,7 @@ echo '<h1>this is guest</h1>';
 
     <!-- guest info -->
     <div id="container" class="container w-50  m-5 mx-auto">
-        <form action="http://localhost/trainline/reservation/guest_book/<?= $voyage['id'] ?>" method="POST">
+        <form action="http://localhost/trainline/reservation/guest_view/<?= $voyage['id'] ?>" method="POST">
             <div class="col-md">
                 <label class="form-label">nom</label>
                 <input type="text" class="form-control" name="guest_nom" required><br>
