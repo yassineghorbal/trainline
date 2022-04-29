@@ -67,7 +67,15 @@ class ReservationController
 
 		$result = $reservation->voyages($idUser);
 		// print_r($result);
-		require_once __DIR__."/../view/client/voyages.php";
+		if($result)
+		{
+			require_once __DIR__."/../view/client/voyages.php";
+		}else{
+			// echo "<center class='alert alert-danger' role='alert'><div>
+			// <h4>Réserver un Ticket pour le voir Ici!</h4>
+			// </div></center>";
+			require_once __DIR__."/../view/client/voyages.php";
+		}
 		}
 	}
 

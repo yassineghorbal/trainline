@@ -24,7 +24,7 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 fixed-top">
+      <nav class="navbar navbar-expand-lg bg-dark text-whit py-3 fixed-top">
       <div class="container">
         <a href="http://localhost/trainline/admin" class="navbar-brand h1">Trainline</a>
 
@@ -41,8 +41,7 @@
           <ul class="navbar-nav ms-auto">
             
             <li class="nav-item">
-              <a href="#" class="nav-link mx-1" data-bs-toggle="modal"
-              data-bs-target="#signup">Admin<i class="bi bi-person"></i></a>
+              <a href="#" class="nav-link mx-1 h5">Admin<i class="bi bi-person h4"></i></a>
             </li>
             
           </ul>
