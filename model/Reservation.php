@@ -78,6 +78,10 @@ class Reservation{
 			$str = " UPDATE tickets SET canceledticket = 1 WHERE idTicket = $idTicket";
 			$query = $ctn->prepare($str);
 			$query->execute();
+
+			$str = "UPDATE voyages SET places = (places+1) WHERE id = tickets.idVoyage";
+			$query = $ctn->prepare($str);
+			$query->execute();
 		}else{
 			echo "nnn";
 		}

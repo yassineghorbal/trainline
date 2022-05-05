@@ -29,7 +29,7 @@
       
     </style>
 
-    <title>S'inscrire</title>
+    <title>Trainline | Sign up</title>
   </head>
   <body>
     <!-- navbar -->
@@ -59,7 +59,7 @@
     </nav>
 
 
-  <h1 class="text-center p-3">Trainline | Sign up</h1>
+  <h1 class="text-center p-3">S'inscrire</h1>
     
 
 	<div id="container" class="container w-50 p-3 m-5 mx-auto">
