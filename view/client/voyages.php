@@ -97,7 +97,8 @@
                                         
                                         <?php } elseif($ticket['canceledticket'] == 1 && $time < 3600) { ?>
                                             <p class="text-danger">
-                                                Ticket est Annulé<br>Voyage est Passé
+                                                Ticket est Annulé<br>
+                                                Voyage est Passé
                                             </p>
                                         <?php } else { ?>
                                             <p class="text-danger">
@@ -107,7 +108,6 @@
                                 </div>        
                             </div>
                 <?php endforeach; ?>
-            
         <?php endforeach; ?>
     </div>
 

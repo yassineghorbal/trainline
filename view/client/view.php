@@ -64,8 +64,8 @@
         </div>
     </nav>
 
+    
     <!-- trip info -->
-
     <h3 class="text-center mb-3 p-3">Informations de voyage selectionné</h3>
 
 	<div class="container w-75">
