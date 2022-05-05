@@ -2,7 +2,6 @@
 
 require_once __DIR__."/../model/Reservation.php";
 
-
 class ReservationController
 {
 	
@@ -23,7 +22,7 @@ class ReservationController
 			$_SESSION['not_found'] = true;
 			echo "<center class='alert alert-danger' role='alert'><div>
 					<h4>Voyage n'est Pas Disponible Pour Le Moment</h4>
-				    </div></center>";
+					</div></center>";
 			require_once __DIR__."/../view/index.php";
 		}else{
 			session_start();
@@ -41,7 +40,7 @@ class ReservationController
 			require_once __DIR__."/../view/client/view.php";
 		}else{
 			$voyage = $reservation->view($id);
-			require_once __DIR__."/../view/client/guest_view.php";
+			require_once __DIR__."/../view/client/signup.php";
 		}
 	}
 
