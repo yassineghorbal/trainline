@@ -1,89 +1,90 @@
-<?php 
+<?php
 
 class Connection
 {
-	private $servername = "localhost";
-	private $username = "root";
-	private $password = "";
-	private $database="brief5";
+	private $servername = "us-cdbr-east-06.cleardb.net";
+	private $username = "bbe0fa1fcfac9d";
+	private $password = "95bee2e0";
+	private $database = "trainline-php";
 	private $conn;
+
+	if($_SERVER['HTTP_HOST'] == 'localhost') {
+		$servername = 'localhost';
+		$username = 'root';
+		$password = '';
+		$database = 'brief5'
+	}
 
 	public function __construct()
 	{
 
 		try {
 			$this->conn = new PDO("mysql:host=$this->servername;dbname=$this->database", $this->username, $this->password);
-			} catch(PDOException $e) 
-			{
+		} catch (PDOException $e) {
 			echo "Connection failed: " . $e->getMessage();
-			}
+		}
 	}
 
-	
-	
-	public function insert($table,$tableCln,$tableVal)
+
+
+	public function insert($table, $tableCln, $tableVal)
 	{
-		$names="";
-		$values="";
-		$vrls="";
-		for ($i=0; $i <count($tableCln) ; $i++) 
-		{ 
-			if ($i>0) 
-			{
-				$vrls=",";
+		$names = "";
+		$values = "";
+		$vrls = "";
+		for ($i = 0; $i < count($tableCln); $i++) {
+			if ($i > 0) {
+				$vrls = ",";
 			}
-			$names.=$vrls."`".$tableCln[$i]."`";
-			$values.=$vrls."'".$tableVal[$i]."'";
+			$names .= $vrls . "`" . $tableCln[$i] . "`";
+			$values .= $vrls . "'" . $tableVal[$i] . "'";
 		}
-		$str="INSERT INTO `$table`(".$names.") VALUES (".$values.")";
-		$query=$this->conn->prepare($str);
+		$str = "INSERT INTO `$table`(" . $names . ") VALUES (" . $values . ")";
+		$query = $this->conn->prepare($str);
 		$query->execute();
 	}
-	
-	
+
+
 	public function selectAll($table)
 	{
-		$query=$this->conn->prepare("SELECT * FROM `$table`");
+		$query = $this->conn->prepare("SELECT * FROM `$table`");
 		$query->execute();
-		return $query->fetchAll(PDO::FETCH_ASSOC); 
+		return $query->fetchAll(PDO::FETCH_ASSOC);
 	}
-	
-	
-	public function selectOne($table,$id)
+
+
+	public function selectOne($table, $id)
 	{
-		$query=$this->conn->prepare("SELECT * FROM `$table` where id=$id");
+		$query = $this->conn->prepare("SELECT * FROM `$table` where id=$id");
 		$query->execute();
 		return $query->fetchAll(PDO::FETCH_ASSOC)[0];
 	}
-	
 
-	public function update($table,$tableCln,$tableVal,$id)
+
+	public function update($table, $tableCln, $tableVal, $id)
 	{
-		$names="";
-		$vrls="";
-		for ($i=0; $i <count($tableCln) ; $i++) 
-		{ 
-			if ($i>0) 
-			{
-				$vrls=",";
+		$names = "";
+		$vrls = "";
+		for ($i = 0; $i < count($tableCln); $i++) {
+			if ($i > 0) {
+				$vrls = ",";
 			}
-			$names.=$vrls."`".$tableCln[$i]."`='".$tableVal[$i]."'";
+			$names .= $vrls . "`" . $tableCln[$i] . "`='" . $tableVal[$i] . "'";
 		}
-		$str="UPDATE $table SET $names WHERE id=$id";
-		$query=$this->conn->prepare($str);
+		$str = "UPDATE $table SET $names WHERE id=$id";
+		$query = $this->conn->prepare($str);
 		$query->execute();
 	}
-	
-	
-	public function delete($table,$id)
+
+
+	public function delete($table, $id)
 	{
-		$query=$this->conn->prepare("DELETE FROM `$table` WHERE id=$id");
+		$query = $this->conn->prepare("DELETE FROM `$table` WHERE id=$id");
 		$query->execute();
 	}
-	
+
 	public function prepare($sql)
 	{
 		return $this->conn->prepare($sql);
 	}
-	
 }
