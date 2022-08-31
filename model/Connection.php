@@ -2,22 +2,15 @@
 
 class Connection
 {
-	private $servername = "us-cdbr-east-06.cleardb.net";
-	private $username = "bbe0fa1fcfac9d";
-	private $password = "95bee2e0";
+	private $servername = "localhost";
+	private $username = "root";
+	private $password = "";
 	private $database = "trainline-php";
 	private $conn;
 
-	if($_SERVER['HTTP_HOST'] == 'localhost') {
-		$servername = 'localhost';
-		$username = 'root';
-		$password = '';
-		$database = 'brief5'
-	}
 
 	public function __construct()
 	{
-
 		try {
 			$this->conn = new PDO("mysql:host=$this->servername;dbname=$this->database", $this->username, $this->password);
 		} catch (PDOException $e) {
